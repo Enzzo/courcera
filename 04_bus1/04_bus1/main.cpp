@@ -26,7 +26,7 @@ int main(int args, char* argv) {
 		else if (mode == "BUSES_FOR_STOP") {
 			//OUTPUT
 				//NO STOP
-				//[bus_1] [bus_n]
+				//[bus_1] [bus_n] 
 		}
 		else if (mode == "STOPS_FOR_BUS") {
 			//OUTPUT:
