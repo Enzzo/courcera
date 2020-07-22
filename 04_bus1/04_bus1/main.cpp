@@ -50,7 +50,6 @@ int main(int args, char* argv) {
 			std::string bus;
 			std::cin >> bus;
 			std::vector<std::string> output;
-
 			if (bus_line.find(bus) == bus_line.end())
 				std::cout << "No bus\n";
 			else {
@@ -58,7 +57,9 @@ int main(int args, char* argv) {
 				for (const auto& st : bus_line[bus]) {
 					for (const auto& bl : bus_line) {
 						if (bl.first == bus)break;
-						
+						if (std::count(bl.second.begin(), bl.second.end(), st) > 0) {
+							std::cout << st << " ";
+						}
 					}
 				}
 				//Stop [stop]: [bus_1] [bus_n] ...
@@ -81,6 +82,7 @@ int main(int args, char* argv) {
 		}
 		//WRONG MODE:
 		else {
+			std::cout << "Wrong mode\n";
 			n++;
 		}
 	}
