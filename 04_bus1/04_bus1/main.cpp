@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <algorithm>
 
 int main(int args, char* argv) {
 
@@ -24,16 +25,45 @@ int main(int args, char* argv) {
 
 		}
 		else if (mode == "BUSES_FOR_STOP") {
-			//OUTPUT
-				//NO STOP
-				//[bus_1] [bus_n] 
+			std::string stop;
+			std::cin >> stop;
+			std::vector<std::string> output;
+
+			for (const auto& b : bus_line) {
+				for (const auto& s : b.second) {
+					if (s == stop) {
+						output.push_back(b.first);
+						break;
+					}
+				}
+			}
+			if (output.size() == 0)
+				std::cout << "No stop\n";
+			else {
+				for (const std::string& s : output) {
+					std::cout << s << " ";
+				}
+				std::cout << std::endl;
+			}
 		}
 		else if (mode == "STOPS_FOR_BUS") {
-			//OUTPUT:
-				//NO BUS
-				//ÑÏÈÑÎÊ
-					//Stop [stop]: [bus_1] [bus_n] ...
-					//Stop [stop]: no interchange
+			std::string bus;
+			std::cin >> bus;
+			std::vector<std::string> output;
+
+			if (bus_line.find(bus) == bus_line.end())
+				std::cout << "No bus\n";
+			else {
+				//const std::vector<std::string>& stops = bus_line[bus];
+				for (const auto& st : bus_line[bus]) {
+					for (const auto& bl : bus_line) {
+						if (bl.first == bus)break;
+						
+					}
+				}
+				//Stop [stop]: [bus_1] [bus_n] ...
+				//Stop [stop]: no interchange
+			}
 		}
 		else if (mode == "ALL_BUSES") {
 			if (bus_line.size() > 0) {
@@ -41,13 +71,13 @@ int main(int args, char* argv) {
 					std::cout << "Bus " << p.first << ": ";
 					for (const std::string& s : p.second) {
 						std::cout << s << " ";
-					}					
+					}	
+					std::cout << std::endl;
 				}
 			}
 			else {
-				std::cout << "No buses";
-			}
-			std::cout << std::endl;
+				std::cout << "No buses\n";
+			}			
 		}
 		//WRONG MODE:
 		else {
