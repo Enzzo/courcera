@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-int main(int args, char* argv) {
+int main() {
 
 	int n;
 	std::cin >> n;
@@ -50,17 +50,29 @@ int main(int args, char* argv) {
 			std::string bus;
 			std::cin >> bus;
 			std::vector<std::string> output;
+			//Если bus не найден
 			if (bus_line.find(bus) == bus_line.end())
 				std::cout << "No bus\n";
 			else {
 				//const std::vector<std::string>& stops = bus_line[bus];
 				for (const auto& st : bus_line[bus]) {
+					//костыли
+					int count = 0;
+					bool f = false;
 					for (const auto& bl : bus_line) {
-						if (bl.first == bus)break;
-						if (std::count(bl.second.begin(), bl.second.end(), st) > 0) {
-							std::cout << st << " ";
+
+						//Если это первый элемент, то пишем Stop:
+						if (!f) {
+							f = true;
+							std::cout << "Stop "<<st<<": ";
+						} 
+						if (std::count(bl.second.begin(), bl.second.end(), st) > 0 && bl.first != bus) {
+							count++;
+							std::cout << bl.first << " ";
 						}
 					}
+					if (f == true && count == 0)std::cout << "no interchange";
+					std::cout << std::endl;
 				}
 				//Stop [stop]: [bus_1] [bus_n] ...
 				//Stop [stop]: no interchange
@@ -72,13 +84,13 @@ int main(int args, char* argv) {
 					std::cout << "Bus " << p.first << ": ";
 					for (const std::string& s : p.second) {
 						std::cout << s << " ";
-					}	
+					}
 					std::cout << std::endl;
 				}
 			}
 			else {
 				std::cout << "No buses\n";
-			}			
+			}
 		}
 		//WRONG MODE:
 		else {
