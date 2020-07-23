@@ -62,16 +62,16 @@ int main() {
 					//костыли
 					int count = 0;
 					bool f = false;
-					for (const auto& bl : bus_line) {
+					for (const auto& bl : buses) {
 
 						//Если это первый элемент, то пишем Stop:
 						if (!f) {
 							f = true;
 							std::cout << "Stop "<<st<<": ";
 						} 
-						if (std::count(bl.second.begin(), bl.second.end(), st) > 0 && bl.first != bus) {
+						if (std::count(bus_line[bl].begin(), bus_line[bl].end(), st) > 0 && bl != bus) {
 							count++;
-							std::cout << bl.first << " ";
+							std::cout << bl << " ";
 						}
 					}
 					if (f == true && count == 0)std::cout << "no interchange";
