@@ -10,6 +10,7 @@ int main() {
 	std::string mode;
 
 	std::map<std::string, std::vector<std::string>> bus_line;
+	std::vector<std::string> buses;
 
 	while (n-- > 0) {
 		std::cin >> mode;
@@ -20,6 +21,8 @@ int main() {
 			std::cin >> bus >> count;
 			std::vector<std::string>names(count);
 
+			buses.push_back(bus);
+
 			for (std::string& s : names) std::cin >> s;
 			bus_line[bus] = names;
 
@@ -29,10 +32,10 @@ int main() {
 			std::cin >> stop;
 			std::vector<std::string> output;
 
-			for (const auto& b : bus_line) {
-				for (const auto& s : b.second) {
+			for (const auto& b : buses) {
+				for (const auto& s : bus_line[b]) {
 					if (s == stop) {
-						output.push_back(b.first);
+						output.push_back(b);
 						break;
 					}
 				}
