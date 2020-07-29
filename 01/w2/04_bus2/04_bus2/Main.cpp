@@ -1,38 +1,30 @@
-//Ќеобходимо присвоить номера автобусным маршрутам.
-
 #include <iostream>
-#include <vector>
 #include <string>
 #include <map>
+#include <vector>
 
 int main() {
+
+	int n;
+	std::cin >> n;
 	
-	int q;
-	std::cin >> q;
-	std::map<std::vector<std::string>, int> bus_line;
+	std::map<std::vector<std::string>, int> stop_line;
 
-	while (q-- > 0) {
-		//cin >> (int)n >> (string) stops
-
-		int n;
-		std::cin >> n;
-		std::string stop;
-		std::vector<std::string> stops;
-
-		for (int i = 0; i < n; i++) {
-			std::cin >> stop;
-			stops.push_back(stop);
-		}
-		int size = bus_line.size()+1;
-		int contr = bus_line[stops];
-		if (contr == 0) {
-			bus_line[stops] = size;
-			std::cout << "New bus " << bus_line.size() << std::endl;
-		}
-		else {
-			std::cout << "Already exists for " << bus_line[stops] << std::endl;		
-		}
+	while (n-- > 0) {
+		//INPUT N AND STOPS
+		int c;
+		std::string stops;
+	
+		//CHECK
+			//OUTPUT
+				//ALREADY EXISTS - если количество стопов и названи€ в векторе совпадает
+				//OR
+				//"New bus N"	 - N - увеличиваетс€ на 1
 	}
-	
+
 	return 0;
+}
+
+bool stop_exists(const std::vector<std::string>& nl, const std::vector<std::string>& ol){
+
 }
