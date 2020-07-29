@@ -31,24 +31,32 @@ int main(int args, char* argv) {
 			for (const std::pair<std::string, std::vector<std::string>>& b : bus_line) {
 				for (const std::string& s : b.second) {
 					if (s == stop) {
-						if (!f) {
-							f = true;
-							std::cout << "Stop " << stop << ": ";
-						}
+						f = true;
 						std::cout << b.first << " ";
 					}
 				}
-			}
+			}			
 			if (!f)std::cout << "No stop";
 			std::cout << std::endl;
 		}
 		else if (mode == "STOPS_FOR_BUS") {
 			std::string bus;
 			std::cin >> bus;
-			
-			for (const std::pair < std::string, std::vector<std::string>>& p : bus_line) {
 
+			if (bus_line[bus].size() == 0) {
+				std::cout << "No bus\n";
 			}
+			else {
+				//TODO: “”“ ѕќ—Ћ≈ƒЌ≈≈!!!
+				//копируем в вектор все stop этого bus, а потом с ним будем сравнивать остальные стопы бусов
+				std::vector<std::string> stops = bus_line[bus];
+				for (const std::pair < std::string, std::vector<std::string>>& p : bus_line) {
+					
+					//скипаем вектор, если он принадлежит контролькному бусу
+					if (p.first == bus) break;
+				}
+			}
+			
 		}
 		else if (mode == "ALL_BUSES") {
 
@@ -67,6 +75,7 @@ int main(int args, char* argv) {
 		}
 		//WRONG MODE:
 		else {
+			std::cout << "Wrong mode\n";
 			n++;
 		}
 	}
