@@ -7,33 +7,21 @@
 int main() {
 
 	std::ifstream input("input.txt");
+	
+	if (input.is_open()) {
+		int n, m;
+		input >> n >> m;
 
-	int N;
-	int M;
-	std::string table;
-	std::vector<std::string> data;
-
-	input >> N;
-	input >> M;
-
-	if(input.is_open()){
-		while (std::getline(input, table, ',')) {
-			std::string temp = "";
-			for (const char c : table) {
-				if (c == '\n') {
-					if(temp.size() > 0)data.push_back(temp);
-					temp = "";
-				}
-				else temp += c;
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				int x; 
+				input >> x;
+				input.ignore(1);
+				if (j != 0)std::cout << " ";
+				std::cout << std::setw(2) << x;
 			}
-			if (temp.size() != 0)data.push_back(temp);
+			if (i != n - 1)std::cout << std::endl;
 		}
-	}
-	for (int x = 0, i = 0; i < N; i++) {
-		for (int j = 0; j < M; j++, x++) {
-			std::cout << std::setw(10) << data[x];
-		}
-		std::cout<<std::endl;
 	}
 	return 0;
 }
