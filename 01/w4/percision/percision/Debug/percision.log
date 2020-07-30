@@ -1,0 +1,3 @@
+﻿  main.cpp
+D:\github\courcera\01\w4\percision\percision\main.cpp(16,9): warning C4101: x: неиспользованная локальная переменная
+  percision.vcxproj -> D:\github\courcera\01\w4\percision\Debug\percision.exe
