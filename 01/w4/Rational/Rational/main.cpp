@@ -13,7 +13,7 @@ public:
     };
 
     Rational(long numerator, long denominator) {
-        if (denominator == 0)throw std::invalid_argument("");
+        //if (denominator == 0)throw std::invalid_argument("");
         //Упростим дробь:
         Format(numerator, denominator);
         this->numerator = numerator;
@@ -139,146 +139,69 @@ private:
         n = std::abs(n / g) * sign;
         d = std::abs(d / g);
     }
+    
 };
-////////////////////////////////////////////////////////////////////////////////////
-//                              ПЕРВЫЙ ВАРИАНТ
-//Пропускает пробелы
-//Если косая черта находится между цифрами, то распознаёт их как дробь
-//Если хоть с одной стороны косой черты находится не число, то 
-//              !!!    воспринимает это, как мусор и ничего в поток не передаёт
-/*
-std::istream& operator>> (std::istream& is, Rational& r) {
-    char input, cd;
-    long n = 0, d = 0;
-    while (is>>input) {
-        if (isspace(input))continue;
-        if(isdigit(input)){
-            is.unget();
-            is >> n;
-            if (isalpha(input))continue;
-            while(is>>input){
-                if (isspace(input))continue;
-                if (isdigit(input)) {
-                    is.unget(); break;
-                }
-                if (isalpha(input)) break;
-                if (input == '/') {
-                    while (is >> input) {
-                        if (isspace(input))continue;
-                        if (isdigit(input)) {
-                            is.unget();
-                            is >> d;
-                            r.Update(n, d);
-                            return is;
-                        }
-                        if (isalpha(input))return is;
-                    }
-                }
-                else break;
-            }
-        }
+
+bool BadStream(std::istream& s) {
+    while (!s.eof()) {
+        if(std::isdigit(s.peek())) return false;
+        if (s.peek() == '/' || ' ') s.ignore(1);
     }
-    return is;
+    return true;
 }
 
-////////////////////////////////////////////////////////////////////////////////////
-//                              ВТОРОЙ ВАРИАНТ
-//Пропускает пробелы
-//Если косая черта находится между цифрами, то распознаёт их как дробь
-//Если хоть с одной стороны косой черты находится не число, то 
-//              !!!    возвращает в поток дробь по-умолчанию
-std::istream& operator>> (std::istream& is, Rational& r) {
-    char input, cd;
+std::istream& operator>>(std::istream& is, Rational& r) {
     long n = 0, d = 1;
-    while (is >> input) {
-        if (isspace(input))continue;
-        if (isdigit(input)) {
-            is.unget();
-            is >> n;
-        }
-        else if (isalpha(input))
-            n = 0;
-
-        if (input == '/') {
-            while (is >> input) {
-                if (isspace(input))continue;
-                if (isdigit(input)) {
-                    is.unget();
-                    is >> d;
-                    r.Update(n, d);
-                    return is;
-                }
-                if (isalpha(input)) {
-                    r.Update(0, 1);
-                    return is;
-                }
-            }
-        }
-    }
+    while (!is.eof()) {
+        if (BadStream(is))break;
+        is >> n;
+        if(BadStream(is))break;
+        is >> d;
+        r.Update(n, d);
+        break;
+    }    
     return is;
 }
-*/
-////////////////////////////////////////////////////////////////////////////////////
-//                              ТРЕТИЙ ВАРИАНТ
-// спотыкается на первом "плохом" символе (всё, что не является цифрой, косой чертой или пробелом)
-// выдаёт значение по-умолчанию
-
-std::istream& operator>> (std::istream& is, Rational& r) {
-    char input;
-    long n = 0, d = 1;
-    while (is >> input) {
-        if (isspace(input))continue;
-        if (isdigit(input)) {
-            is.unget();
-            is >> n;
-            continue;
-        }
-        else if (isalpha(input))
-            return is;
-
-        if (input == '/') {
-            while (is >> input) {
-                if (isspace(input))continue;
-                if (isdigit(input)) {
-                    is.unget();
-                    is >> d;
-                    r.Update(n, d);
-                    return is;
-                }
-                if (isalpha(input)) {
-                    //r.Update(0, 1);
-                    return is;
-                }
-            }
-        }return is;
-    }
-    return is;
-}
-
 std::ostream& operator<< (std::ostream& os, const Rational& r) {
     os << r.Numerator() << "/" << r.Denominator();
     return os;
 }
 
-int main() {    
-    try {
-        Rational r(1, 0);
-        std::cout << "Doesn't throw in case of zero denominator" << std::endl;
-        return 1;
-    }
-    catch (std::invalid_argument&) {
+int main() {
 
+    std::istringstream inp("3,4/2");
+    Rational r1, r2;
+    inp >> r1;
+    std::cout << r1 <<" "<<r2<< std::endl;
+
+    {
+        std::istringstream input("5/7");
+        Rational r;
+        input >> r;
+        bool equal = r == Rational(5, 7);
+        if (!equal) {
+            std::cout << "5/7 is incorrectly read as " << r << std::endl;
+            return 2;
+        }
     }
 
-    try {
-        auto x = Rational(1, 2) / Rational(0, 1);
-        std::cout << "Doesn't throw in case of division by zero" << std::endl;
-        return 2;
-    }
-    catch (std::domain_error&) {
+    {
+        std::istringstream input("5/7 10/8");
+        Rational r1, r2;
+        input >> r1 >> r2;
+        bool correct = r1 == Rational(5, 7) && r2 == Rational(5, 4);
+        if (!correct) {
+            std::cout << "Multiple values are read incorrectly: " << r1 << " " << r2 << std::endl;
+            return 3;
+        }
 
+        input >> r1;
+        input >> r2;
+        correct = r1 == Rational(5, 7) && r2 == Rational(5, 4);
+        if (!correct) {
+            std::cout << "Read from empty stream shouldn't change arguments: " << r1 << " " << r2 << std::endl;
+            return 4;
+        }
     }
-    
-    std::cout << "OK" << std::endl;
     return 0;
 }
