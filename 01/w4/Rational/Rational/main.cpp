@@ -143,22 +143,22 @@ private:
 };
 
 bool BadStream(std::istream& s) {
-    while (!s.eof()) {
-        if(std::isdigit(s.peek())) return false;
-        if (s.peek() == '/' || ' ') s.ignore(1);
+    if (s.peek() == '/' || s.peek() == ' ') {
+        s.ignore(1);
+        return false;
     }
     return true;
 }
 
 std::istream& operator>>(std::istream& is, Rational& r) {
     long n = 0, d = 1;
-    while (!is.eof()) {
-        if (BadStream(is))break;
-        is >> n;
-        if(BadStream(is))break;
-        is >> d;
-        r.Update(n, d);
-        break;
+    if (!is.eof()) {
+        if (!BadStream(is))
+            is >> n;
+        if (!BadStream(is)) {
+            is >> d;
+            r.Update(n, d);
+        }
     }    
     return is;
 }
@@ -169,11 +169,15 @@ std::ostream& operator<< (std::ostream& os, const Rational& r) {
 
 int main() {
 
-    std::istringstream inp("3,4/2");
+    std::istringstream inp("f /4 6/4");
     Rational r1, r2;
-    inp >> r1;
+    inp >> r1 >> r2;
     std::cout << r1 <<" "<<r2<< std::endl;
 
+    std::istringstream inp2("6 /4 6/f");
+    Rational r3, r4;
+    inp2 >> r3 >> r4;
+    std::cout << r3 << " " << r4 << std::endl;
     {
         std::istringstream input("5/7");
         Rational r;
