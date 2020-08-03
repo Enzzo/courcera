@@ -142,24 +142,24 @@ private:
     
 };
 
-bool BadStream(std::istream& s) {
-    if (s.peek() == '/' || s.peek() == ' ') {
-        s.ignore(1);
-        return false;
-    }
-    return true;
+void SkipSpaces(std::istream& is) {
+if (is.peek() == ' ')is.ignore(1);
 }
 
 std::istream& operator>>(std::istream& is, Rational& r) {
     long n = 0, d = 1;
-    if (!is.eof()) {
-        if (!BadStream(is))
-            is >> n;
-        if (!BadStream(is)) {
-            is >> d;
-            r.Update(n, d);
+    
+    SkipSpaces(is);
+    if (is >> n) {
+        SkipSpaces(is);
+        if (is.peek() == '/') {
+            is.ignore(1);
+            SkipSpaces(is);
+            if (is >> d)
+                r.Update(n, d);
         }
-    }    
+    }
+
     return is;
 }
 std::ostream& operator<< (std::ostream& os, const Rational& r) {
@@ -168,44 +168,22 @@ std::ostream& operator<< (std::ostream& os, const Rational& r) {
 }
 
 int main() {
-
-    std::istringstream inp("f /4 6/4");
-    Rational r1, r2;
-    inp >> r1 >> r2;
-    std::cout << r1 <<" "<<r2<< std::endl;
-
-    std::istringstream inp2("6 /4 6/f");
-    Rational r3, r4;
-    inp2 >> r3 >> r4;
-    std::cout << r3 << " " << r4 << std::endl;
-    {
-        std::istringstream input("5/7");
-        Rational r;
-        input >> r;
-        bool equal = r == Rational(5, 7);
-        if (!equal) {
-            std::cout << "5/7 is incorrectly read as " << r << std::endl;
-            return 2;
-        }
+    try {
+        Rational r(1, 0);
+        std::cout << "Doesn't throw in case of zero denominator" << std::endl;
+        return 1;
+    }
+    catch (std::invalid_argument&) {
     }
 
-    {
-        std::istringstream input("5/7 10/8");
-        Rational r1, r2;
-        input >> r1 >> r2;
-        bool correct = r1 == Rational(5, 7) && r2 == Rational(5, 4);
-        if (!correct) {
-            std::cout << "Multiple values are read incorrectly: " << r1 << " " << r2 << std::endl;
-            return 3;
-        }
-
-        input >> r1;
-        input >> r2;
-        correct = r1 == Rational(5, 7) && r2 == Rational(5, 4);
-        if (!correct) {
-            std::cout << "Read from empty stream shouldn't change arguments: " << r1 << " " << r2 << std::endl;
-            return 4;
-        }
+    try {
+        auto x = Rational(1, 2) / Rational(0, 1);
+        std::cout << "Doesn't throw in case of division by zero" << std::endl;
+        return 2;
     }
+    catch (std::domain_error&) {
+    }
+
+    std::cout << "OK" << std::endl;
     return 0;
 }
