@@ -7,13 +7,11 @@
 
 class Rational {
 public:
-    Rational() {
-        numerator = 0;
-        denominator = 1;
-    };
-
-    Rational(long numerator, long denominator) {
-        //if (denominator == 0)throw std::invalid_argument("");
+    Rational(long numerator = 0, long denominator = 1) {
+        if (denominator == 0) {
+            //std::cout << "invalid argument\n";
+            throw std::invalid_argument("");
+        }
         //Óןנמסעטל הנמבü:
         Format(numerator, denominator);
         this->numerator = numerator;
@@ -64,18 +62,19 @@ public:
 
         //Óןנמסעטל הנמבü:
         Format(n, d);
-
         return Rational(n, d);
     }
     Rational operator/(const Rational& r) const {
-        
+        if (r.Numerator() == 0) {
+            //std::cout << "invalid argument\n";
+            throw std::domain_error("");
+        }
         long d, n;
         d = this->denominator * r.Numerator();
         n = this->numerator * r.Denominator();
-        if (r.Denominator() == 0) throw std::domain_error("");
+        
         //Óןנמסעטל הנמבü:
         Format(n, d);
-
         return Rational(n, d);
     }
     Rational operator*(const Rational& r) const {
@@ -83,10 +82,8 @@ public:
 
         d = this->denominator * r.Denominator();
         n = this->numerator * r.Numerator();
-        
         //Óןנמסעטל הנמבü:
         Format(n, d);
-
         return Rational(n, d);
     }
     bool operator==(const Rational& r) const {
@@ -167,23 +164,35 @@ std::ostream& operator<< (std::ostream& os, const Rational& r) {
     return os;
 }
 
-int main() {
-    try {
-        Rational r(1, 0);
-        std::cout << "Doesn't throw in case of zero denominator" << std::endl;
-        return 1;
+int main() try{
+   
+    Rational l, r;
+    char op;
+    std::cin >> l >> op >> r;
+    switch (op) {
+    case '+': {
+        std::cout<<l + r;
+        break;
     }
-    catch (std::invalid_argument&) {
+    case '-': {
+        std::cout << l - r;
+        break;
+    }
+    case '/': {
+        std::cout << l / r;
+        break;
+    }
+    case '*': {
+        std::cout << l * r;
+        break;
+    }
     }
 
-    try {
-        auto x = Rational(1, 2) / Rational(0, 1);
-        std::cout << "Doesn't throw in case of division by zero" << std::endl;
-        return 2;
-    }
-    catch (std::domain_error&) {
-    }
-
-    std::cout << "OK" << std::endl;
     return 0;
+}
+catch (std::invalid_argument&) {
+    std::cout << "Invalid argument\n";
+}
+catch (std::domain_error&) {
+    std::cout << "Division by zero\n";
 }
