@@ -10,9 +10,9 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <map>
 #include <vector>
-#include <string>
 
 class Date {
 public:
@@ -69,12 +69,22 @@ int main() {
 
     std::string command;
     std::string line;
-    while (std::getline(std::cin, line)) {
-        
-        command = 
+    std::string mode;
 
+    std::istringstream iss;
+
+    while (std::getline(std::cin, line)) {
+        if (line.size() == 0) continue;
+
+        iss.str(line);
+        
+        std::getline(iss, command, ' ');
+        std::getline(iss, command, ' ');
+        std::getline(iss, command, ' ');
+        std::getline(iss, command, ' ');
+        std::getline(iss, command, ' ');
         //Если пустая строка, то скипаем
-        if (command.size() == 0) continue;
+        
 
 
 
