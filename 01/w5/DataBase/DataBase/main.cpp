@@ -25,6 +25,16 @@ public:
     int GetDay() const {
         return day;
     };
+
+    void SetYear(const int year) {
+        this->year = year;
+    }
+    void SetMonth(const int month) {
+        this->month = month;
+    }
+    void SetDay(const int day) {
+        this->day = day;
+    }
 private:
     int year;
     int month;
@@ -58,7 +68,8 @@ private:
     std::map<Date, std::vector<std::string>> table;
 };
 
-std::istream& operator>>(std::istream& is, Database& db);
+std::istringstream& operator>>(std::istringstream&, Date&);
+std::ostream& operator<<(std::ostream&, const Date&);
 
 //Функция для перевода строки в верхний регистр
 //применяется для сравнения введённой команды
@@ -67,33 +78,40 @@ void upper(std::string&);
 int main() {
     Database db;
 
-    std::string command;
     std::string line;
-    std::string mode;
-
     std::istringstream iss;
 
+    //TEST
+    /*
+    std::string test;
+    std::string test2;
+    std::istringstream isstest;
+    
+    while (std::getline(std::cin, test)) {
+        isstest.str(test);
+        isstest >> test2;
+    }*/
+    //TEST
+
+    std::string command;
     while (std::getline(std::cin, line)) {
         if (line.size() == 0) continue;
 
         iss.str(line);
+        iss >> command;
         
-        std::getline(iss, command, ' ');
-        std::getline(iss, command, ' ');
-        std::getline(iss, command, ' ');
-        std::getline(iss, command, ' ');
-        std::getline(iss, command, ' ');
-        //Если пустая строка, то скипаем
         
+        //std::getline(iss, command, ' ');
+        if (iss.peek() == ' ')iss.ignore(1);
 
-
+        //Если пустая строка, то скипаем    
 
         // Считайте команды с потока ввода и обработайте каждую
         if (command == "ADD") {
             Date date;
+            iss >> date;
             std::string event;
-            std::cin >> event;
-            std::cout << "\ntest:  " << event << std::endl;
+            std::getline(iss, event);
             db.AddEvent(date, event);
         }
         else if (command == "DEL") {
@@ -103,11 +121,9 @@ int main() {
         }
         else if (command == "PRINT") {
             db.Print();
-            command.erase();
         }
         else {
             std::cout << "Unknown command: " << command;
-            command.erase();
         }
     }
     
@@ -127,8 +143,31 @@ void Database::AddEvent(const Date& date, const std::string& event) {
 }
 
 void Database::Print()const {
+    for (const std::pair<Date, std::vector<std::string>>& p : table) {
+        std::cout << "Date: " << p.first << std::endl;
+        for (const std::string& s : p.second) {
+            std::cout << "Event: " << s << std::endl;
+        }
+        std::cout << std::endl;
+    }
 }
 
-std::istream& operator>>(std::istream& is, Database& db) {
-    return is;
+std::istringstream& operator>>(std::istringstream& ist, Date& d) {
+
+    int i;
+    ist >> i;
+    d.SetDay(i);
+    ist.ignore(1);
+    ist >> i;
+    d.SetMonth(i);
+    ist.ignore(1);
+    ist >> i;
+    d.SetYear(i);
+
+    return ist;
+}
+
+std::ostream& operator<<(std::ostream& os, const Date& d) {
+    os << d.GetDay() << "/" << d.GetMonth() << "/" << d.GetYear();
+    return os;
 }
