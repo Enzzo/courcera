@@ -14,6 +14,9 @@
 #include <sstream>
 #include <map>
 #include <vector>
+#include <algorithm>
+#include <iomanip>
+#include <exception>
 
 class Date {
 public:
@@ -42,6 +45,18 @@ private:
     int day;
 };
 
+class WrongDate {
+public:
+    WrongDate(std::string& m) {
+        message += m;
+    }
+    const std::string what()const {
+        return message;
+    }
+private:
+    std::string message = "Wrong date format: ";
+};
+
 bool operator<(const Date& lhs, const Date& rhs) {
     
     //Если левый год меньше правого
@@ -58,9 +73,10 @@ bool operator<(const Date& lhs, const Date& rhs) {
 
 class Database {
 public:
-    void AddEvent(const Date& date, const std::string& event);
-    bool DeleteEvent(const Date& date, const std::string& event);
-    int  DeleteDate(const Date& date);
+    void AddEvent(const Date&, const std::string&);
+    bool DeleteEvent(const Date&, const std::string&);
+    int  DeleteDate(const Date&);
+    void Find(const Date&);
 
     //Find(const Date& date) const;
 
@@ -76,8 +92,9 @@ std::ostream& operator<<(std::ostream&, const Date&);
 //применяется для сравнения введённой команды
 void upper(std::string&);
 void ShowMap(const std::map<Date, std::vector<std::string>>&);
+void CheckFormat(std::istream&);
 
-int main() {
+int main() try{
     Database db;
 
     std::string line;
@@ -123,18 +140,29 @@ int main() {
         else if (command == "FIND") {
             Date date;
             iss >> date;
-
+            iss.ignore(1);
+            db.Find(date);
         }
         else if (command == "PRINT") {
+            //TODO:
+            //Выводит список ДАТА[ГГГГ-ММ-ДД] СОБЫТИЕ
+            //Если число имеет меньше разрядов, 
+            //то оно должно дополняться нулями спереди
+            //0001-01-01
+            //Даты и события отсортированы
+
             db.Print();
         }
         else {
-            std::cout << "Unknown command: " << command;
+            std::cout << "Unknown command: " << command << std::endl;
         }
         iss.clear();
     }
     
     return 0;
+}
+catch (WrongDate d) {
+    std::cout << d.what();
 }
 
 void upper(std::string& s) {
@@ -147,6 +175,7 @@ void Database::AddEvent(const Date& date, const std::string& event) {
         if (s == event) return;
     }
     table[date].push_back(event);
+    std::sort(table[date].begin(), table[date].end());
 }
 
 bool Database::DeleteEvent(const Date& date, const std::string& event) {
@@ -168,33 +197,52 @@ int Database::DeleteDate(const Date& date) {
     return s;
 }
 
+void Database::Find(const Date& date) {
+    if (table[date].size() > 0) {
+        std::sort(table[date].begin(), table[date].end());
+    }
+    for (const auto& s : table[date]) {
+        std::cout << s << std::endl;
+    }
+};
+
 void Database::Print()const {
     for (const std::pair<Date, std::vector<std::string>>& p : table) {
-        std::cout << "Date: " << p.first << std::endl;
         for (const std::string& s : p.second) {
-            std::cout << "Event: " << s << std::endl;
+            std::cout << p.first << " " << s << std::endl;
         }
         std::cout << std::endl;
     }
 }
 
 std::istringstream& operator>>(std::istringstream& ist, Date& d) {
-
+    //TODO: ОБРАБОТЧИК ОШИБОК НЕПРАВИЛЬНОГО ВВОДА
     int i;
+    CheckFormat(ist);
     ist >> i;
-    d.SetDay(i);
+    d.SetYear(i);
     ist.ignore(1);
+    CheckFormat(ist);
     ist >> i;
     d.SetMonth(i);
     ist.ignore(1);
+    CheckFormat(ist);
     ist >> i;
-    d.SetYear(i);
-
+    d.SetDay(i);
+    //TODO: после дня тоже не должно быть никаких левых символов!!!
     return ist;
 }
 
+void CheckFormat(std::istream& is) {
+    if (!std::isdigit(is.peek())) {
+        std::string error;
+        is >> error;
+        throw WrongDate(error);
+    }
+}
+
 std::ostream& operator<<(std::ostream& os, const Date& d) {
-    os << d.GetDay() << "/" << d.GetMonth() << "/" << d.GetYear();
+    os << std::setfill('0') << std::setw(4) << d.GetYear() << "-" << std::setw(2) << d.GetMonth() << "-" << std::setw(2) << d.GetDay();
     return os;
 }
 
