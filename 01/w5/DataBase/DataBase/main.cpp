@@ -92,39 +92,38 @@ int main() {
         isstest >> test2;
     }*/
     //TEST
-
-    std::string command;
+    std::string event;
+    std::string command
+        ;
     while (std::getline(std::cin, line)) {
-        if (line.size() == 0) continue;
+        if (line.size() == 0) continue;        
 
         iss.str(line);
         iss >> command;
         
-        
-        //std::getline(iss, command, ' ');
-        if (iss.peek() == ' ')iss.ignore(1);
-
-        //Если пустая строка, то скипаем    
-
         // Считайте команды с потока ввода и обработайте каждую
         if (command == "ADD") {
+            std::cout << "DEBUG: ADD\n";
             Date date;
             iss >> date;
-            std::string event;
             std::getline(iss, event);
+
             db.AddEvent(date, event);
         }
         else if (command == "DEL") {
-
+            std::cout << "DEBUG: DEL\n";
         }
         else if (command == "FIND") {
+            std::cout << "DEBUG: FIND\n";
         }
         else if (command == "PRINT") {
+            std::cout << "DEBUG: PRINT\n";
             db.Print();
         }
         else {
             std::cout << "Unknown command: " << command;
         }
+        iss.clear();
     }
     
     return 0;
