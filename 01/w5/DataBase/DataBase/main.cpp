@@ -9,6 +9,7 @@
 */
 
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <sstream>
 #include <map>
@@ -74,6 +75,7 @@ std::ostream& operator<<(std::ostream&, const Date&);
 //Функция для перевода строки в верхний регистр
 //применяется для сравнения введённой команды
 void upper(std::string&);
+void ShowMap(const std::map<Date, std::vector<std::string>>&);
 
 int main() {
     Database db;
@@ -81,21 +83,12 @@ int main() {
     std::string line;
     std::istringstream iss;
 
-    //TEST
-    /*
-    std::string test;
-    std::string test2;
-    std::istringstream isstest;
-    
-    while (std::getline(std::cin, test)) {
-        isstest.str(test);
-        isstest >> test2;
-    }*/
-    //TEST
-    std::string event;
-    std::string command
-        ;
-    while (std::getline(std::cin, line)) {
+    std::string command;
+    Date date;
+
+    std::ifstream fs("input.txt");
+
+    while (std::getline(fs, line)) {
         if (line.size() == 0) continue;        
 
         iss.str(line);
@@ -103,21 +96,36 @@ int main() {
         
         // Считайте команды с потока ввода и обработайте каждую
         if (command == "ADD") {
-            std::cout << "DEBUG: ADD\n";
-            Date date;
+            std::string event;
             iss >> date;
+            iss.ignore(1);
             std::getline(iss, event);
 
             db.AddEvent(date, event);
         }
         else if (command == "DEL") {
-            std::cout << "DEBUG: DEL\n";
+            Date date;
+            std::string event;
+            iss >> date;
+            iss.ignore(1);
+            std::getline(iss, event);
+            
+            if (event.size() > 0) {
+                if (db.DeleteEvent(date, event))
+                    std::cout << "Deleted successfully\n";
+                else
+                    std::cout << "Event not found\n";
+            }
+            else
+                std::cout << "Deleted " << db.DeleteDate(date) << " events\n";
+                
         }
         else if (command == "FIND") {
-            std::cout << "DEBUG: FIND\n";
+            Date date;
+            iss >> date;
+
         }
         else if (command == "PRINT") {
-            std::cout << "DEBUG: PRINT\n";
             db.Print();
         }
         else {
@@ -139,6 +147,25 @@ void Database::AddEvent(const Date& date, const std::string& event) {
         if (s == event) return;
     }
     table[date].push_back(event);
+}
+
+bool Database::DeleteEvent(const Date& date, const std::string& event) {
+    for (auto& p : table) {
+        std::vector<std::string>::iterator it = p.second.begin();
+        for (; it != p.second.end(); it++) {
+            if (*it == event) {
+                p.second.erase(it);
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+int Database::DeleteDate(const Date& date) {
+    int s = table[date].size();
+    table.erase(date);
+    return s;
 }
 
 void Database::Print()const {
@@ -169,4 +196,13 @@ std::istringstream& operator>>(std::istringstream& ist, Date& d) {
 std::ostream& operator<<(std::ostream& os, const Date& d) {
     os << d.GetDay() << "/" << d.GetMonth() << "/" << d.GetYear();
     return os;
+}
+
+void ShowMap(const std::map<Date, std::vector<std::string>>& t) {
+    for (const auto& i : t) {
+        std::cout << i.first << std::endl;
+        for (const auto& s : i.second) {
+            std::cout << "\t" << s << std::endl;
+        }
+    }
 }
