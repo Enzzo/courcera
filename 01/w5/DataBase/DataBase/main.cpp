@@ -1,13 +1,3 @@
-// Реализуйте функции и методы классов и при необходимости добавьте свои
-
-/*
-- добавление события:                        Add Дата Событие
-- удаление события:                          Del Дата Событие
-- удаление всех событий за конкретную дату:  Del Дата
-- поиск событий за конкретную дату:          Find Дата
-- печать всех событий за все даты:           Print
-*/
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -45,30 +35,16 @@ private:
     int day;
 };
 
-class WrongDate {
+class WrongDateException {
 public:
-    WrongDate(std::string& m) {
-        message += m;
+    WrongDateException(const std::string& m = "Wrong date") {
+        message = m;
     }
     const std::string what()const {
         return message;
     }
 private:
-    std::string message = "Wrong date format: ";
-};
-
-bool operator<(const Date& lhs, const Date& rhs) {
-    
-    //Если левый год меньше правого
-    if ((lhs.GetYear() < rhs.GetYear()) ||
-        //или если года равны и левый месяц меньше правого
-        (lhs.GetYear() == rhs.GetYear() && ((lhs.GetMonth() < rhs.GetMonth()) ||
-            //или если года равны и месяца равны и левый день меньше правого
-            (lhs.GetMonth() == rhs.GetMonth() && lhs.GetDay() < rhs.GetDay())))) 
-        //то возвращаем true
-        return true;
-
-    return false;
+    std::string message;
 };
 
 class Database {
@@ -76,7 +52,7 @@ public:
     void AddEvent(const Date&, const std::string&);
     bool DeleteEvent(const Date&, const std::string&);
     int  DeleteDate(const Date&);
-    void Find(const Date&);
+    void Find(const Date&)const;
 
     //Find(const Date& date) const;
 
@@ -85,14 +61,8 @@ private:
     std::map<Date, std::vector<std::string>> table;
 };
 
-std::istringstream& operator>>(std::istringstream&, Date&);
+std::istream& operator>>(std::istream&, Date&);
 std::ostream& operator<<(std::ostream&, const Date&);
-
-//Функция для перевода строки в верхний регистр
-//применяется для сравнения введённой команды
-void upper(std::string&);
-void ShowMap(const std::map<Date, std::vector<std::string>>&);
-void CheckFormat(std::istream&);
 
 int main() try{
     Database db;
@@ -106,13 +76,14 @@ int main() try{
     std::ifstream fs("input.txt");
 
     while (std::getline(fs, line)) {
+    //while(std::getline(std::cin, line)){
         if (line.size() == 0) continue;        
 
         iss.str(line);
         iss >> command;
         
         // Считайте команды с потока ввода и обработайте каждую
-        if (command == "ADD") {
+        if (command == "Add") {
             std::string event;
             iss >> date;
             iss.ignore(1);
@@ -120,7 +91,7 @@ int main() try{
 
             db.AddEvent(date, event);
         }
-        else if (command == "DEL") {
+        else if (command == "Del") {
             Date date;
             std::string event;
             iss >> date;
@@ -134,23 +105,17 @@ int main() try{
                     std::cout << "Event not found\n";
             }
             else
-                std::cout << "Deleted " << db.DeleteDate(date) << " events\n";
-                
+                std::cout << "Deleted " << db.DeleteDate(date) << " events\n";                
         }
-        else if (command == "FIND") {
+        else if (command == "Find") {
             Date date;
-            iss >> date;
-            iss.ignore(1);
-            db.Find(date);
+            if(!(iss.eof())){
+                iss >> date;
+                iss.ignore(1);
+                db.Find(date);
+            }
         }
-        else if (command == "PRINT") {
-            //TODO:
-            //Выводит список ДАТА[ГГГГ-ММ-ДД] СОБЫТИЕ
-            //Если число имеет меньше разрядов, 
-            //то оно должно дополняться нулями спереди
-            //0001-01-01
-            //Даты и события отсортированы
-
+        else if (command == "Print") {
             db.Print();
         }
         else {
@@ -161,14 +126,23 @@ int main() try{
     
     return 0;
 }
-catch (WrongDate d) {
+catch (WrongDateException d) {
     std::cout << d.what();
 }
 
-void upper(std::string& s) {
-    for (char& c : s)
-        c = std::toupper(c);
-}
+bool operator<(const Date& lhs, const Date& rhs) {
+
+    //Если левый год меньше правого
+    if ((lhs.GetYear() < rhs.GetYear()) ||
+        //или если года равны и левый месяц меньше правого
+        (lhs.GetYear() == rhs.GetYear() && ((lhs.GetMonth() < rhs.GetMonth()) ||
+            //или если года равны и месяца равны и левый день меньше правого
+            (lhs.GetMonth() == rhs.GetMonth() && lhs.GetDay() < rhs.GetDay()))))
+        //то возвращаем true
+        return true;
+
+    return false;
+};
 
 void Database::AddEvent(const Date& date, const std::string& event) {
     for (const std::string& s : table[date]) {
@@ -197,60 +171,61 @@ int Database::DeleteDate(const Date& date) {
     return s;
 }
 
-void Database::Find(const Date& date) {
-    if (table[date].size() > 0) {
-        std::sort(table[date].begin(), table[date].end());
+void Database::Find(const Date& date) const{
+    try {
+        std::vector<std::string> v = table.at(date);
+        if (v.size() > 0) {
+            for (const std::string& s : v) {
+                std::cout << s << std::endl;
+            }
+        }
     }
-    for (const auto& s : table[date]) {
-        std::cout << s << std::endl;
-    }
+    catch (std::out_of_range) {};
 };
 
 void Database::Print()const {
+
     for (const std::pair<Date, std::vector<std::string>>& p : table) {
-        for (const std::string& s : p.second) {
-            std::cout << p.first << " " << s << std::endl;
+        if (p.first.GetYear() >= 0) {
+            for (const std::string& s : p.second) {
+                std::cout << p.first << " " << s << std::endl;
+            }
         }
-        std::cout << std::endl;
     }
 }
 
-std::istringstream& operator>>(std::istringstream& ist, Date& d) {
-    //TODO: ОБРАБОТЧИК ОШИБОК НЕПРАВИЛЬНОГО ВВОДА
+std::istream& operator>>(std::istream& ist, Date& d) {
+    
+    //строковое представаление даты:
+    std::string s_date;
+    ist >> s_date;
+    std::istringstream is(s_date);
+
     int i;
-    CheckFormat(ist);
-    ist >> i;
-    d.SetYear(i);
-    ist.ignore(1);
-    CheckFormat(ist);
-    ist >> i;
-    d.SetMonth(i);
-    ist.ignore(1);
-    CheckFormat(ist);
-    ist >> i;
-    d.SetDay(i);
-    //TODO: после дня тоже не должно быть никаких левых символов!!!
-    return ist;
-}
-
-void CheckFormat(std::istream& is) {
-    if (!std::isdigit(is.peek())) {
-        std::string error;
-        is >> error;
-        throw WrongDate(error);
+    if (is >> i) {
+        d.SetYear(i);
+        is.ignore(1);
+        if (is >> i) {
+            d.SetMonth(i);
+            is.ignore(1);
+            if (is >> i) {
+                d.SetDay(i);
+                if (is.eof()) {
+                    //если формат даты верен, то проверяем правильность дня, месяца года
+                    int month = d.GetMonth();
+                    if (month < 1 || 12 < month) throw WrongDateException("Month value is invalid: " + std::to_string(month));
+                    int day = d.GetDay();
+                    if (day < 1 || 31 < day) throw WrongDateException("Day value is invalid: " + std::to_string(day));
+                    return ist;
+                }
+            }
+        }
     }
+    throw WrongDateException("Wrong date format: "+s_date);
 }
 
 std::ostream& operator<<(std::ostream& os, const Date& d) {
-    os << std::setfill('0') << std::setw(4) << d.GetYear() << "-" << std::setw(2) << d.GetMonth() << "-" << std::setw(2) << d.GetDay();
+    if(d.GetYear() >= 0)
+        os << std::setfill('0') << std::setw(4) << d.GetYear() << "-" << std::setw(2) << d.GetMonth() << "-" << std::setw(2) << d.GetDay();
     return os;
-}
-
-void ShowMap(const std::map<Date, std::vector<std::string>>& t) {
-    for (const auto& i : t) {
-        std::cout << i.first << std::endl;
-        for (const auto& s : i.second) {
-            std::cout << "\t" << s << std::endl;
-        }
-    }
 }
