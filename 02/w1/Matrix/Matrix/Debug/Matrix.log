@@ -1,0 +1,3 @@
+﻿  main.cpp
+D:\GitHub\courcera\02\w1\Matrix\Matrix\main.cpp(83,9): error C2561: operator +: функция должна возвращать значение
+D:\GitHub\courcera\02\w1\Matrix\Matrix\main.cpp(82): message : см. объявление "operator +"
