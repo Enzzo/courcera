@@ -47,6 +47,18 @@ private:
     std::string message;
 };
 
+class WrongCommandException {
+public:
+    WrongCommandException(const std::string& m) {
+        message += m;
+    }
+    const std::string what()const {
+        return message;
+    }
+private:
+    std::string message = "Unknown command: ";
+};
+
 class Database {
 public:
     void AddEvent(const Date&, const std::string&);
@@ -73,10 +85,10 @@ int main() try{
     std::string command;
     Date date;
 
-    std::ifstream fs("input.txt");
+    //std::ifstream fs("input.txt");
 
-    while (std::getline(fs, line)) {
-    //while(std::getline(std::cin, line)){
+    //while (std::getline(fs, line)) {
+    while(std::getline(std::cin, line)){
         if (line.size() == 0) continue;        
 
         iss.str(line);
@@ -119,7 +131,7 @@ int main() try{
             db.Print();
         }
         else {
-            std::cout << "Unknown command: " << command << std::endl;
+            throw WrongCommandException(command);
         }
         iss.clear();
     }
@@ -127,7 +139,13 @@ int main() try{
     return 0;
 }
 catch (WrongDateException d) {
-    std::cout << d.what();
+    std::cout << d.what() << std::endl;
+}
+catch (WrongCommandException c) {
+    std::cout << c.what() << std::endl;
+}
+catch (...) {
+    
 }
 
 bool operator<(const Date& lhs, const Date& rhs) {
@@ -153,6 +171,20 @@ void Database::AddEvent(const Date& date, const std::string& event) {
 }
 
 bool Database::DeleteEvent(const Date& date, const std::string& event) {
+    try {
+        std::vector<std::string>& v = table.at(date);
+        if (v.size() > 0) {
+            std::vector<std::string>::iterator it = v.begin();
+            for (; it != v.end(); it++) {
+                if (*it == event) {
+                    v.erase(it);
+                    return true;
+                }
+            }
+        }
+    }
+    catch (std::out_of_range) {};
+    /*
     for (auto& p : table) {
         std::vector<std::string>::iterator it = p.second.begin();
         for (; it != p.second.end(); it++) {
@@ -161,7 +193,7 @@ bool Database::DeleteEvent(const Date& date, const std::string& event) {
                 return true;
             }
         }
-    }
+    }*/
     return false;
 }
 
@@ -204,19 +236,23 @@ std::istream& operator>>(std::istream& ist, Date& d) {
     int i;
     if (is >> i) {
         d.SetYear(i);
-        is.ignore(1);
-        if (is >> i) {
-            d.SetMonth(i);
+        if (is.peek() == '-') {
             is.ignore(1);
             if (is >> i) {
-                d.SetDay(i);
-                if (is.eof()) {
-                    //если формат даты верен, то проверяем правильность дня, месяца года
-                    int month = d.GetMonth();
-                    if (month < 1 || 12 < month) throw WrongDateException("Month value is invalid: " + std::to_string(month));
-                    int day = d.GetDay();
-                    if (day < 1 || 31 < day) throw WrongDateException("Day value is invalid: " + std::to_string(day));
-                    return ist;
+                d.SetMonth(i);
+                if (is.peek() == '-') {
+                    is.ignore(1);
+                    if (is >> i) {
+                        d.SetDay(i);
+                        if (is.eof()) {
+                            //если формат даты верен, то проверяем правильность дня, месяца года
+                            int month = d.GetMonth();
+                            if (month < 1 || 12 < month) throw WrongDateException("Month value is invalid: " + std::to_string(month));
+                            int day = d.GetDay();
+                            if (day < 1 || 31 < day) throw WrongDateException("Day value is invalid: " + std::to_string(day));
+                            return ist;
+                        }
+                    }
                 }
             }
         }
