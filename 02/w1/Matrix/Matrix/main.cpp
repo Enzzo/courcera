@@ -15,13 +15,14 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 class Matrix {
 private:
 	std::vector<std::vector<int>>matrix;
 	
 public:
-
+	
 	//конструктор по умолчанию, который создаЄт матрицу с нулЄм строк и нулЄм столбцов
 	//конструктор от двух целочисленных параметров : num_rows и num_cols, Ч которые задают количество строк и столбцов матрицы соответственно
 	Matrix(const int num_rows = 0, const int num_cols = 0){
@@ -78,12 +79,14 @@ public:
 };
 
 std::istream& operator>>(std::istream& ist, Matrix& mt) try{ 
-	std::vector<std::vector<int>> m;
-	int r, c;
+	int r, c, x;
 	ist >> r >> c;
+
+	std::vector<std::vector<int>> m(r);
 	for (int i = 0; i < r; i++) {
 		for (int j = 0; j < c; j++) {
-			std::cin >> m[i][j];
+			ist >> x;
+			m[i].push_back(x);
 		}
 	}
 	mt.SetMatrix(m);
@@ -105,10 +108,11 @@ catch (std::out_of_range) {
 
 }
 bool operator==(const Matrix& l, const Matrix& r) try{
-	if (l.GetMatrix().size() != r.GetMatrix().size() ||
-		l.GetMatrix().at(0).size() != r.GetMatrix().at(0).size()) return false;
-	for (int i = 0; i < l.GetMatrix().size(); i++) {
-		for (int j = 0; j < l.GetMatrix()[i].size(); j++) {
+	if (l.GetNumRows() != r.GetNumRows() ||
+		l.GetNumColumns() != r.GetNumColumns()) return false;
+
+	for (int i = 0; i < l.GetNumRows(); i++) {
+		for (int j = 0; j < l.GetNumColumns(); j++) {
 			if (l.GetMatrix()[i][j] != r.GetMatrix()[i][j])return false;
 		}
 	}
@@ -118,12 +122,40 @@ catch (std::out_of_range) {
 
 }
 Matrix& operator+(const Matrix& l, const Matrix& r)try {
-	return ;
+	if (l.GetNumRows() != r.GetNumRows() ||
+		l.GetNumColumns() != r.GetNumColumns()) throw std::invalid_argument("");
+	
+	std::vector<std::vector<int>>m(l.GetNumRows());
+	for (int i = 0; i < l.GetNumRows(); i++) {
+		for (int j = 0; j < l.GetNumColumns(); j++) {
+			m[i].push_back(l.GetMatrix()[i][j] + r.GetMatrix()[i][j]);
+		}
+	}
+	Matrix mt;
+	mt.SetMatrix(m);
+	return mt;
 }
 catch (std::out_of_range) {
 	
-};
+}
 
-int main() {
+int main()try {
+
+	std::ifstream ifs("input.txt");
+	Matrix a, b, c;
+	while (ifs >> a >> b) {
+		c = a + b;
+		std::cout << c << std::endl;
+	}
+	
 	return 0;
+}
+catch (std::invalid_argument) {
+
+}
+catch (std::out_of_range) {
+
+}
+catch (...) {
+
 }
