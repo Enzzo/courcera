@@ -1,18 +1,3 @@
-/*
-	оператор ввода из потока istream; формат ввода простой Ч сначала задаЄтс€ количество строк и столбцов (именно в этом пор€дке), 
-	а затем все элементы матрицы: сначала элемент первой строки и первого столбца, затем элемент первой строки и второго столбца и так далее
-
-	оператор вывода в поток ostream; он должен выводить матрицу в том же формате, в каком еЄ читает оператор ввода, Ч в первой строке количество строк и столбцов, 
-	во второй Ч элементы первой строки, в третьей Ч элементы второй строки и т.д.
-	
-	оператор проверки на равенство (==): он должен возвращать true, если сравниваемые матрицы имеют одинаковый размер и все их соответствующие элементы равны между собой, 
-	в противном случае он должен возвращать false.
-	
-	оператор сложени€: он должен принимать две матрицы и возвращать новую матрицу, котора€ €вл€етс€ их суммой; 
-	если переданные матрицы имеют разные размеры этот оператор должен выбрасывать стандартное исключение invalid_argument.
-
-ћатрицы с нулЄм строк или нулЄм столбцов считаютс€ пустыми. Ћюбые две пустые матрицы равны. —умма двух пустых матриц также €вл€етс€ пустой матрицей.*/
-
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -38,15 +23,15 @@ public:
 		if (num_rows < 0 || num_cols < 0) throw std::out_of_range("");
 		
 		matrix.resize(num_rows);
-		for (std::vector<int> c : matrix) {
+		for (std::vector<int>& c : matrix) {
 			c.resize(num_cols, 0);
 		}
 	}
 
 	//константный метод At, который принимает номер строки и номер столбца(именно в этом пор€дке; нумераци€ строк и столбцов начинаетс€ с нул€) и возвращает значение в соответствущей €чейке матрицы
 	const int At(const int num_r, const int num_c)const try {
-		if (num_r < 0 || num_r > matrix.size() ||
-			num_c < 0 || num_c > matrix.at(0).size()) throw std::out_of_range("");
+		if (num_r < 0 || num_r > (int)matrix.size() ||
+			num_c < 0 || num_c > (int)matrix.at(0).size()) throw std::out_of_range("");
 		return matrix.at(num_r).at(num_c);
 	}
 	catch (std::out_of_range e) {
@@ -66,9 +51,10 @@ public:
 		return matrix.size();
 	}
 	const int GetNumColumns()const {
+		int c = 0;
 		if (matrix.size() > 0)
-			return matrix[0].size();
-		return 0;
+			c = matrix.at(0).size();
+		return c;
 	}
 	const std::vector<std::vector<int>>& GetMatrix() const{
 		return matrix;
@@ -78,25 +64,23 @@ public:
 	}
 };
 
-std::istream& operator>>(std::istream& ist, Matrix& mt) try{ 
+std::istream& operator>>(std::istream& ist, Matrix& mt) { 
 	int r, c, x;
 	ist >> r >> c;
-
+	if (r < 0 || c < 0) throw std::out_of_range("");
 	std::vector<std::vector<int>> m(r);
 	for (int i = 0; i < r; i++) {
 		for (int j = 0; j < c; j++) {
 			ist >> x;
-			m[i].push_back(x);
+			m.at(i).push_back(x);
 		}
 	}
 	mt.SetMatrix(m);
 	return ist;
 }
-catch (std::out_of_range) {
-
-}
 
 std::ostream& operator<<(std::ostream& ost, const Matrix& m) try{
+	ost << m.GetNumRows() << " " << m.GetNumColumns() << std::endl;
 	for (const std::vector<int>& vi : m.GetMatrix()) {
 		for (const int i : vi)
 			ost << i<<" ";
@@ -105,7 +89,7 @@ std::ostream& operator<<(std::ostream& ost, const Matrix& m) try{
 	return ost;
 }
 catch (std::out_of_range) {
-
+	throw std::exception();
 }
 bool operator==(const Matrix& l, const Matrix& r) try{
 	if (l.GetNumRows() != r.GetNumRows() ||
@@ -113,15 +97,15 @@ bool operator==(const Matrix& l, const Matrix& r) try{
 
 	for (int i = 0; i < l.GetNumRows(); i++) {
 		for (int j = 0; j < l.GetNumColumns(); j++) {
-			if (l.GetMatrix()[i][j] != r.GetMatrix()[i][j])return false;
+			if (l.GetMatrix().at(i).at(j) != r.GetMatrix().at(i).at(j))return false;
 		}
 	}
 	return true;
 }
 catch (std::out_of_range) {
-
+	throw std::exception();
 }
-Matrix& operator+(const Matrix& l, const Matrix& r)try {
+Matrix operator+(const Matrix& l, const Matrix& r)try {
 	if (l.GetNumRows() != r.GetNumRows() ||
 		l.GetNumColumns() != r.GetNumColumns()) throw std::invalid_argument("");
 	
@@ -136,26 +120,17 @@ Matrix& operator+(const Matrix& l, const Matrix& r)try {
 	return mt;
 }
 catch (std::out_of_range) {
-	
+	throw std::exception();
 }
 
-int main()try {
+int main(){
 
-	std::ifstream ifs("input.txt");
-	Matrix a, b, c;
-	while (ifs >> a >> b) {
-		c = a + b;
-		std::cout << c << std::endl;
-	}
+	//std::ifstream ifs("input.txt");
+	Matrix one;
+	Matrix two;
+	//ifs >> one >> two;
+	std::cin >> one >> two;
+	std::cout << one + two << std::endl;
 	
 	return 0;
-}
-catch (std::invalid_argument) {
-
-}
-catch (std::out_of_range) {
-
-}
-catch (...) {
-
 }
