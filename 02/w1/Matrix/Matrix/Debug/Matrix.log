@@ -1,3 +1,5 @@
 ﻿  main.cpp
-D:\GitHub\courcera\02\w1\Matrix\Matrix\main.cpp(83,9): error C2561: operator +: функция должна возвращать значение
-D:\GitHub\courcera\02\w1\Matrix\Matrix\main.cpp(82): message : см. объявление "operator +"
+D:\github\courcera\02\w1\Matrix\Matrix\main.cpp(47,26): warning C4018: >: несоответствие типов со знаком и без знака
+D:\github\courcera\02\w1\Matrix\Matrix\main.cpp(48,23): warning C4018: >: несоответствие типов со знаком и без знака
+D:\github\courcera\02\w1\Matrix\Matrix\main.cpp(88,9): error C2561: operator +: функция должна возвращать значение
+D:\github\courcera\02\w1\Matrix\Matrix\main.cpp(87): message : см. объявление "operator +"

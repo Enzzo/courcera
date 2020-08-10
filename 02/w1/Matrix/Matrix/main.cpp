@@ -69,24 +69,59 @@ public:
 			return matrix[0].size();
 		return 0;
 	}
-	std::vector<std::vector<int>>& GetMatrix() {
+	const std::vector<std::vector<int>>& GetMatrix() const{
 		return matrix;
+	}
+	void SetMatrix(const std::vector<std::vector<int>>& m) {
+		matrix = m;
 	}
 };
 
-std::istream& operator>>(std::istream& ist, const Matrix& m) {
-	m.
-	for(const std::vector<int>& v : m.GetMatrix()){}
+std::istream& operator>>(std::istream& ist, Matrix& mt) try{ 
+	std::vector<std::vector<int>> m;
+	int r, c;
+	ist >> r >> c;
+	for (int i = 0; i < r; i++) {
+		for (int j = 0; j < c; j++) {
+			std::cin >> m[i][j];
+		}
+	}
+	mt.SetMatrix(m);
 	return ist;
 }
-std::ostream& operator<<(std::ostream& ost, const Matrix& m) {
+catch (std::out_of_range) {
+
+}
+
+std::ostream& operator<<(std::ostream& ost, const Matrix& m) try{
+	for (const std::vector<int>& vi : m.GetMatrix()) {
+		for (const int i : vi)
+			ost << i<<" ";
+		ost << std::endl;
+	}
 	return ost;
 }
-bool operator==(const Matrix& l, const Matrix& r) {
+catch (std::out_of_range) {
+
+}
+bool operator==(const Matrix& l, const Matrix& r) try{
+	if (l.GetMatrix().size() != r.GetMatrix().size() ||
+		l.GetMatrix().at(0).size() != r.GetMatrix().at(0).size()) return false;
+	for (int i = 0; i < l.GetMatrix().size(); i++) {
+		for (int j = 0; j < l.GetMatrix()[i].size(); j++) {
+			if (l.GetMatrix()[i][j] != r.GetMatrix()[i][j])return false;
+		}
+	}
 	return true;
 }
-Matrix& operator+(const Matrix& l, const Matrix& r) {
+catch (std::out_of_range) {
+
+}
+Matrix& operator+(const Matrix& l, const Matrix& r)try {
 	return ;
+}
+catch (std::out_of_range) {
+	
 };
 
 int main() {
