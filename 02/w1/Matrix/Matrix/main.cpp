@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <stdexcept>
 
 class Matrix {
 private:
@@ -16,34 +17,25 @@ public:
 
 	//метод Reset, принимающий два целочисленных параметра, которые задают новое количество строк и столбцов матрицы соответственно; 
 	//метод Reset мен€ет размеры матрицы на заданные и обнул€ет все еЄ элементы
-	void Reset(const int num_rows = 0, const int num_cols = 0){
+	void Reset(int num_rows = 0, int num_cols = 0){
 
 		//≈сли количество строк или количество столбцов, переданное в конструктор класса Matrix или метод Reset, оказалось отрицательным, 
 		//то должно быть выброшено стандартное исключение out_of_range.
-		if (num_rows < 0 || num_cols < 0) throw std::out_of_range("");
-		
-		matrix.resize(num_rows);
-		for (std::vector<int>& c : matrix) {
-			c.resize(num_cols, 0);
-		}
+		if (num_rows < 0) throw std::out_of_range("rows value less than 0");
+		if (num_cols < 0) throw std::out_of_range("columts value less than 0");
+		if (num_rows == 0 || num_cols == 0)num_rows = num_cols = 0;
+
+		matrix.assign(num_rows, std::vector<int>(num_cols, 0));
 	}
 
 	//константный метод At, который принимает номер строки и номер столбца(именно в этом пор€дке; нумераци€ строк и столбцов начинаетс€ с нул€) и возвращает значение в соответствущей €чейке матрицы
-	const int At(const int num_r, const int num_c)const try {
-		if (num_r < 0 || num_r > (int)matrix.size() ||
-			num_c < 0 || num_c > (int)matrix.at(0).size()) throw std::out_of_range("");
+	const int At(const int num_r, const int num_c)const{
 		return matrix.at(num_r).at(num_c);
-	}
-	catch (std::out_of_range e) {
-
 	}
 
 	//неконстантный метод At с такими же параметрами, но возвращающий ссылку на значение в соответствущей €чейке матрицы
-	int& At(const int num_r, const int num_c) try{
+	int& At(const int num_r, const int num_c){
 		return matrix.at(num_r).at(num_c);
-	}
-	catch (std::out_of_range e) {
-		
 	}
 
 	//константные методы GetNumRows и GetNumColumns, которые возвращают количество строк и столбцов матрицы соответственно
@@ -79,7 +71,7 @@ std::istream& operator>>(std::istream& ist, Matrix& mt) {
 	return ist;
 }
 
-std::ostream& operator<<(std::ostream& ost, const Matrix& m) try{
+std::ostream& operator<<(std::ostream& ost, const Matrix& m){
 	ost << m.GetNumRows() << " " << m.GetNumColumns() << std::endl;
 	for (const std::vector<int>& vi : m.GetMatrix()) {
 		for (const int i : vi)
@@ -88,10 +80,7 @@ std::ostream& operator<<(std::ostream& ost, const Matrix& m) try{
 	}
 	return ost;
 }
-catch (std::out_of_range) {
-	throw std::exception();
-}
-bool operator==(const Matrix& l, const Matrix& r) try{
+bool operator==(const Matrix& l, const Matrix& r){
 	if (l.GetNumRows() != r.GetNumRows() ||
 		l.GetNumColumns() != r.GetNumColumns()) return false;
 
@@ -102,10 +91,8 @@ bool operator==(const Matrix& l, const Matrix& r) try{
 	}
 	return true;
 }
-catch (std::out_of_range) {
-	throw std::exception();
-}
-Matrix operator+(const Matrix& l, const Matrix& r)try {
+
+Matrix operator+(const Matrix& l, const Matrix& r){
 	if (l.GetNumRows() != r.GetNumRows() ||
 		l.GetNumColumns() != r.GetNumColumns()) throw std::invalid_argument("");
 	
@@ -118,9 +105,6 @@ Matrix operator+(const Matrix& l, const Matrix& r)try {
 	Matrix mt;
 	mt.SetMatrix(m);
 	return mt;
-}
-catch (std::out_of_range) {
-	throw std::exception();
 }
 
 int main(){
