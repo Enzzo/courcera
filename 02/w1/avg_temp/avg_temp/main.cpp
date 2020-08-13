@@ -31,38 +31,38 @@
 
 int main() {
 
-	bool debug = false;
-	std::ifstream ist("input.txt");
-	int64_t n;
+	bool debug = true;
+	std::ifstream ist("output.txt");
+
+	unsigned int n; //не превышает 10^6
 	
-	std::cout << std::numeric_limits<int>::max() << std::endl;
-	std::cout << std::numeric_limits<int>::min() << std::endl;
+	//std::cout << std::numeric_limits<uint16_t>::max();
 
 	if(debug)
 		ist >> n;
 	else
 		std::cin >> n;
 
-	std::vector<int64_t> temps(n);
-	int64_t t;
-	int64_t avg;
-	int64_t sum = 0;
+	std::vector<int> temps(n); //-10^8 до 10^8
 
-	for (int64_t i = 0; i < n; i++) {
+	int avg; //?
+	int64_t sum = 0; //-10^14 до 10^14
+
+	for (size_t i = 0; i < temps.size(); i++) {
 		
-		if(debug)
-			ist >> t;
+		if (debug)
+			ist >> temps.at(i);
 		else
-			std::cin >> t;
+			std::cin >> temps.at(i);
 
-		temps.at(i) = t;
-		sum += static_cast<int64_t>(temps.at(i));
+		sum += temps.at(i);
 	}
 
-	avg = static_cast<int64_t>(sum / static_cast<int64_t>(temps.size()));
-	int64_t c = 0;
+	avg = static_cast<int>(sum / static_cast<int>(temps.size()));
+	
+	unsigned int c = 0;
 	std::vector<int64_t>res;
-	for (int64_t i = 0; i < temps.size(); i++) {
+	for (size_t i = 0; i < temps.size(); i++) {
 		if (temps.at(i) > avg) {
 			c++;
 			res.push_back(i);
@@ -71,8 +71,9 @@ int main() {
 
 	if (c > 0) {
 		std::cout << c << std::endl;
-		for (int64_t i = 0; i < res.size(); i++) {
-			std::cout << res.at(i)<<" ";
+		for (size_t i = 0; i < res.size(); i++) {
+			if(!debug)
+				std::cout << res.at(i)<<" ";
 		}
 	}
 	return 0;

@@ -1,0 +1,3 @@
+﻿  main.cpp
+D:\GitHub\courcera\02\w1\filler\filler\main.cpp(10,9): warning C4551: в вызове функции отсутствует список аргументов
+  filler.vcxproj -> D:\GitHub\courcera\02\w1\filler\Debug\filler.exe
