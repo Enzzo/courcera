@@ -31,8 +31,8 @@
 
 int main() {
 
-	bool debug = true;
-	std::ifstream ist("output.txt");
+	bool debug = false;
+	std::ifstream ist("input.txt");
 
 	unsigned int n; //не превышает 10^6
 	
@@ -45,7 +45,7 @@ int main() {
 
 	std::vector<int> temps(n); //-10^8 до 10^8
 
-	int avg; //?
+	int avg = 0; //?
 	int64_t sum = 0; //-10^14 до 10^14
 
 	for (size_t i = 0; i < temps.size(); i++) {
@@ -57,8 +57,8 @@ int main() {
 
 		sum += temps.at(i);
 	}
-
-	avg = static_cast<int>(sum / static_cast<int>(temps.size()));
+	if(temps.size() > 0)
+		avg = static_cast<int>(sum / static_cast<int>(temps.size()));
 	
 	unsigned int c = 0;
 	std::vector<int64_t>res;
@@ -69,12 +69,10 @@ int main() {
 		}
 	}
 
-	if (c > 0) {
 		std::cout << c << std::endl;
 		for (size_t i = 0; i < res.size(); i++) {
-			if(!debug)
-				std::cout << res.at(i)<<" ";
+			std::cout << res.at(i)<<" ";
 		}
-	}
+
 	return 0;
 }
