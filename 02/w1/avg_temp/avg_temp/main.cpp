@@ -5,8 +5,9 @@
 Гарантируется, что среднее арифметическое значений температуры является целым числом.
 Формат ввода
 
-Вводится число N, затем N целых чисел — значения температуры в 0-й, 1-й, ... (N−1)-й день. Гарантируется, что N не превышает миллиона (10^6), 
-а значения температуры, измеряющиеся в миллионных долях градусов по Цельсию, лежат в диапазоне от −10^8 до 10^8. Проверять соблюдение этих ограничений не нужно: 
+Вводится число N, затем N целых чисел — значения температуры в 0-й, 1-й, ... (N−1)-й день. 
+Гарантируется, что N не превышает миллиона (10^6), а значения температуры, измеряющиеся в 
+миллионных долях градусов по Цельсию, лежат в диапазоне от −10^8 до 10^8. Проверять соблюдение этих ограничений не нужно: 
 вы можете ориентироваться на них при выборе наиболее подходящих типов для переменных.
 Формат вывода
 
@@ -26,25 +27,28 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <limits>
 
 int main() {
 
 	bool debug = false;
 	std::ifstream ist("input.txt");
-
-	unsigned int n;
+	int64_t n;
 	
+	std::cout << std::numeric_limits<int>::max() << std::endl;
+	std::cout << std::numeric_limits<int>::min() << std::endl;
+
 	if(debug)
 		ist >> n;
 	else
 		std::cin >> n;
 
-	std::vector<int> temps(n);
-	int t;
-	int32_t avg;
+	std::vector<int64_t> temps(n);
+	int64_t t;
+	int64_t avg;
 	int64_t sum = 0;
 
-	for (size_t i = 0; i < n; i++) {
+	for (int64_t i = 0; i < n; i++) {
 		
 		if(debug)
 			ist >> t;
@@ -54,10 +58,11 @@ int main() {
 		temps.at(i) = t;
 		sum += static_cast<int64_t>(temps.at(i));
 	}
-	avg = static_cast<int32_t>(sum / static_cast<int64_t>(temps.size()));
-	unsigned int c = 0;
-	std::vector<int>res;
-	for (size_t i = 0; i < temps.size(); i++) {
+
+	avg = static_cast<int64_t>(sum / static_cast<int64_t>(temps.size()));
+	int64_t c = 0;
+	std::vector<int64_t>res;
+	for (int64_t i = 0; i < temps.size(); i++) {
 		if (temps.at(i) > avg) {
 			c++;
 			res.push_back(i);
@@ -66,7 +71,7 @@ int main() {
 
 	if (c > 0) {
 		std::cout << c << std::endl;
-		for (size_t i = 0; i < res.size(); i++) {
+		for (int64_t i = 0; i < res.size(); i++) {
 			std::cout << res.at(i)<<" ";
 		}
 	}

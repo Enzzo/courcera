@@ -1,2 +1,7 @@
 ﻿  main.cpp
+D:\GitHub\courcera\02\w1\avg_temp\avg_temp\main.cpp(46,29): warning C4244: аргумент: преобразование "int64_t" в "const unsigned int", возможна потеря данных
+D:\GitHub\courcera\02\w1\avg_temp\avg_temp\main.cpp(58,12): warning C4244: аргумент: преобразование "int64_t" в "const unsigned int", возможна потеря данных
+D:\GitHub\courcera\02\w1\avg_temp\avg_temp\main.cpp(59,40): warning C4244: аргумент: преобразование "int64_t" в "const unsigned int", возможна потеря данных
+D:\GitHub\courcera\02\w1\avg_temp\avg_temp\main.cpp(66,16): warning C4244: аргумент: преобразование "int64_t" в "const unsigned int", возможна потеря данных
+D:\GitHub\courcera\02\w1\avg_temp\avg_temp\main.cpp(75,24): warning C4244: аргумент: преобразование "int64_t" в "const unsigned int", возможна потеря данных
   avg_temp.vcxproj -> D:\GitHub\courcera\02\w1\avg_temp\Debug\avg_temp.exe
