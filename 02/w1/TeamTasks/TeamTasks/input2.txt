@@ -1,0 +1,4 @@
+AddNewTasks Alice 1
+GetPersonTasksInfo Alice
+PerformPersonTasks Alice 2
+GetPersonTasksInfo Alice
