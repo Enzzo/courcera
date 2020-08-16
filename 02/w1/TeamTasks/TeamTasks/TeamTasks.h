@@ -30,7 +30,8 @@ void TeamTasks::AddNewTask(const std::string& person) {
 std::tuple<TasksInfo, TasksInfo> TeamTasks::PerformPersonTasks(const std::string& person, int task_count) {
 	TasksInfo upd;
 	TasksInfo untch = team[person];
-	int total_counts = 0;
+	
+	/*int total_counts = 0;
 
 	for (const std::pair<TaskStatus, int> p : team[person]) {
 		if(p.first != TaskStatus::DONE)
@@ -38,23 +39,24 @@ std::tuple<TasksInfo, TasksInfo> TeamTasks::PerformPersonTasks(const std::string
 	}
 
 	if (task_count > total_counts) task_count = total_counts;
+	*/
 
 	while (task_count-- > 0) {
-		if (team[person][TaskStatus::NEW] > 0) {
+		if (untch[TaskStatus::NEW] > 0) {
 			team[person][TaskStatus::NEW]--;
 			team[person][TaskStatus::IN_PROGRESS]++;
 			untch[TaskStatus::NEW]--;
 			upd[TaskStatus::IN_PROGRESS]++;
 
 		}
-		else if (team[person][TaskStatus::IN_PROGRESS] > 0) {
+		else if (untch[TaskStatus::IN_PROGRESS] > 0) {
 			team[person][TaskStatus::IN_PROGRESS]--;
 			team[person][TaskStatus::TESTING]++;
 			untch[TaskStatus::IN_PROGRESS]--;
 			upd[TaskStatus::TESTING]++;
 
 		}
-		else if (team[person][TaskStatus::TESTING] > 0) {
+		else if (untch[TaskStatus::TESTING] > 0) {
 			team[person][TaskStatus::TESTING]--;
 			team[person][TaskStatus::DONE]++;
 			untch[TaskStatus::TESTING]--;
