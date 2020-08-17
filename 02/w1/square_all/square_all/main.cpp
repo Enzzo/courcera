@@ -4,6 +4,29 @@
 #include <utility>
 
 template<typename T>
+std::ostream& operator<<(std::ostream& os, const std::vector<T>& vt);
+
+template<typename L, typename R>
+std::ostream& operator<<(std::ostream& os, const std::pair<L, R>& p);
+
+template<typename Key, typename Value>
+std::ostream& operator<<(std::ostream& os, const std::map<Key, Value>& m);
+
+template<typename T>
+std::vector<T> operator*(const std::vector<T>& l, const std::vector<T>& r);
+
+template<typename L, typename R>
+std::pair<L, R> operator*(const std::pair<L, R>& l, const std::pair<L, R>& r);
+
+template<typename Key, typename Value>
+std::map<Key, Value> operator*(const std::map<Key, Value>& l, const std::map<Key, Value>& r);
+
+template<typename T>
+T Sqr(const T& t) {
+	return t * t;
+}
+
+template<typename T>
 std::ostream& operator<<(std::ostream& os, const std::vector<T>& vt) {
 	bool first = true;
 	for (const T& i : vt) {
@@ -52,20 +75,4 @@ std::map<Key, Value> operator*(const std::map<Key, Value>& l, const std::map<Key
 		m[p.first] = l.at(p.first) * r.at(p.first);
 	}
 	return m;
-}
-
-template<typename T>
-T Sqr(T t) {
-	return t * t;
-}
-
-int main() {
-
-	std::vector<std::vector<int>> v = { { 1, 1, 1}, {2, 2, 2}, {3, 3, 3}, {4, 4, 4} };
-	std::pair<int, double> p = { 4, 2.5 };
-	std::map<std::string, int> m = { {"first", 3}, {"second", 5 } };
-	//std::cout << m;
-	std::cout << Sqr(m);
-
-	return 0;
 }
