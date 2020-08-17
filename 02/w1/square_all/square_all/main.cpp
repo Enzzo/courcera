@@ -12,19 +12,7 @@ std::ostream& operator<<(std::ostream& os, const std::pair<L, R>& p);
 template<typename Key, typename Value>
 std::ostream& operator<<(std::ostream& os, const std::map<Key, Value>& m);
 
-template<typename T>
-std::vector<T> operator*(const std::vector<T>& l, const std::vector<T>& r);
 
-template<typename L, typename R>
-std::pair<L, R> operator*(const std::pair<L, R>& l, const std::pair<L, R>& r);
-
-template<typename Key, typename Value>
-std::map<Key, Value> operator*(const std::map<Key, Value>& l, const std::map<Key, Value>& r);
-
-template<typename T>
-T Sqr(const T& t) {
-	return t * t;
-}
 
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const std::vector<T>& vt) {
@@ -53,6 +41,19 @@ std::ostream& operator<<(std::ostream& os, const std::map<Key, Value>& m) {
 	return os;
 }
 ////////////////////////////////////////////////////////////////////////////////////////
+template<typename T>
+std::vector<T> operator*(const std::vector<T>& l, const std::vector<T>& r);
+
+template<typename L, typename R>
+std::pair<L, R> operator*(const std::pair<L, R>& l, const std::pair<L, R>& r);
+
+template<typename Key, typename Value>
+std::map<Key, Value> operator*(const std::map<Key, Value>& l, const std::map<Key, Value>& r);
+
+template<typename T>
+T Sqr(const T& t) {
+	return t * t;
+}
 
 template<typename T>
 std::vector<T> operator*(const std::vector<T>& l, const std::vector<T>& r) {

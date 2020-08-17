@@ -1,13 +1,2 @@
 ﻿  main.cpp
-D:\github\courcera\02\w1\element_reference\element_reference\main.cpp(9,1): error C2440: return: невозможно преобразовать "const int" в "Value &"
-          with
-          [
-              Value=int
-          ]
-D:\github\courcera\02\w1\element_reference\element_reference\main.cpp(9,13): message : В результате преобразования теряются квалификаторы
-D:\github\courcera\02\w1\element_reference\element_reference\main.cpp(17): message : выполняется компиляция ссылки на экземпляр шаблон функции "Value &GetRefStrict<std::string,int>(const std::map<std::string,int,std::less<std::string>,std::allocator<std::pair<const std::string,int>>> &,const Key &)"
-          with
-          [
-              Value=int,
-              Key=std::string
-          ]
+  element_reference.vcxproj -> D:\GitHub\courcera\02\w1\element_reference\Debug\element_reference.exe
