@@ -1,2 +1,3 @@
 ﻿  Solution.cpp
+D:\github\courcera\02\w1\Solution\Solution\Solution.cpp(33,30): warning C4018: <: несоответствие типов со знаком и без знака
   Solution.vcxproj -> D:\github\courcera\02\w1\Solution\Debug\Solution.exe
