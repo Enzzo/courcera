@@ -93,9 +93,7 @@ private:
     int fail_count = 0;
 };
 
-void TestEquations() {
-    AssertEqual(GetDistinctRealRootCount(0, 0, 2), 0);
-}
+
 
 int GetQuadraticRootCount(const double a, const double b, const double c) {
     return 0;
@@ -113,9 +111,15 @@ int GetDistinctRealRootCount(double a, double b, double c) {
     else
         return GetLinearRootCount(b, c);        
 }
-
+void TestLinearEquations() {
+    AssertEqual(GetLinearRootCount(0, 0), 0);
+    AssertEqual(GetLinearRootCount(0, 1), 0);
+    AssertEqual(GetLinearRootCount(2, 0), 1);
+    AssertEqual(GetLinearRootCount(-2, 0), 1);
+}
 int main() {
     TestRunner runner;
+    runner.RunTest(TestLinearEquations, "Test linear equations");
     // добавьте сюда свои тесты
     return 0;
 }
