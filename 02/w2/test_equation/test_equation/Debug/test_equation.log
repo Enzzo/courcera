@@ -1,7 +1,2 @@
 ﻿  main.cpp
-D:\github\courcera\02\w2\test_equation\test_equation\main.cpp(72,13): error C2064: результатом вычисления фрагмента не является функция, принимающая 0 аргументов
-D:\github\courcera\02\w2\test_equation\test_equation\main.cpp(123): message : выполняется компиляция ссылки на экземпляр шаблон функции "void TestRunner::RunTest<int>(TestFunc,const std::string &)"
-          with
-          [
-              TestFunc=int
-          ]
+  test_equation.vcxproj -> D:\GitHub\courcera\02\w2\test_equation\Debug\test_equation.exe

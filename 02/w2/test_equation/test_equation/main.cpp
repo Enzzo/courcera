@@ -94,9 +94,11 @@ private:
 };
 
 
-
 int GetQuadraticRootCount(const double a, const double b, const double c) {
-    return 0;
+    //a != 0
+    if (b == 0 && c == 0)return 0;
+    if (c == 0)return 1;
+    return 2;
 }
 int GetLinearRootCount(const double b, const double c) {
     if (b == 0) return 0;
@@ -112,14 +114,26 @@ int GetDistinctRealRootCount(double a, double b, double c) {
         return GetLinearRootCount(b, c);        
 }
 void TestLinearEquations() {
-    AssertEqual(GetLinearRootCount(0, 0), 0);
-    AssertEqual(GetLinearRootCount(0, 1), 0);
-    AssertEqual(GetLinearRootCount(2, 0), 1);
-    AssertEqual(GetLinearRootCount(-2, 0), 1);
+    AssertEqual(GetDistinctRealRootCount(0, 2, 0), 1);
+    AssertEqual(GetDistinctRealRootCount(0, -2, 0),1);
 }
+
+void TestQuadraticEquations() {    
+    AssertEqual(GetDistinctRealRootCount(1, 1, 0), 2);
+    AssertEqual(GetDistinctRealRootCount(1, 1, 1), 0);
+    AssertEqual(GetDistinctRealRootCount(1, 0, 0), 1);
+}
+void TestNoRootEquations() {
+    AssertEqual(GetDistinctRealRootCount(1, 0, 0), 1);
+    AssertEqual(GetDistinctRealRootCount(0, 0, 0), 0);
+    AssertEqual(GetDistinctRealRootCount(0, 0, 1), 0);
+}
+
 int main() {
     TestRunner runner;
     runner.RunTest(TestLinearEquations, "Test linear equations");
-    // добавьте сюда свои тесты
+    runner.RunTest(TestQuadraticEquations, "Test quadratic equations");
+    runner.RunTest(TestNoRootEquations, "Test no root equations");
+
     return 0;
 }
