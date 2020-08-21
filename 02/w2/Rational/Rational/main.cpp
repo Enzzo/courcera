@@ -208,33 +208,33 @@ std::ostream& operator<< (std::ostream& os, const Rational& r) {
 
 void DefaultConstructor() {
     Rational r;
-    Rational l(0, 1);
-    AssertEqual(r, l);
+    AssertEqual(r.Numerator(), 0);
+    AssertEqual(r.Denominator(), 1);
 }
 void Decrease() {
     Rational r(2, 4);
-    Rational l(1, 2);
-    AssertEqual(r, l);
+    AssertEqual(r.Numerator(), 1);
+    AssertEqual(r.Denominator(), 2);
 }
 void NegativeNumerator() {
     Rational r(-2, 4);
-    Rational l(-1, 2);
-    AssertEqual(r, l);
+    AssertEqual(r.Numerator(), -1);
+    AssertEqual(r.Denominator(), 2);
 }
 void NegativeDenumerator() {
     Rational r(2, -4);
-    Rational l(-1, 2);
-    AssertEqual(r, l);
+    AssertEqual(r.Numerator(), -1);
+    AssertEqual(r.Denominator(), 2);
 }
 void NegativeFraction() {
     Rational r(-3, -6);
-    Rational l(1, -2);
-    AssertEqual(r, l);
+    AssertEqual(r.Numerator(), 1);
+    AssertEqual(r.Denominator(), 2);
 }
 void ZeroNumerator() {
-    Rational r(0, 1);
-    Rational l(0, 25);
-    AssertEqual(r, l);
+    Rational r(0, 25);
+    AssertEqual(r.Numerator(), 0);
+    AssertEqual(r.Denominator(), 1);
 }
 
 void TestAll() {
