@@ -12,16 +12,17 @@ std::vector<std::string>SplitIntoWords(const std::string& s) {
     */
     std::vector<std::string> res;
     std::string::const_iterator isb = s.begin();
-    std::string::const_iterator ise;
-    do{
+    std::string::const_iterator ise = s.begin();
+    
+    while (true) {
         ise = std::find(isb, s.end(), ' ');
-        if (*ise == ' ') {
-            std::string s(isb, ise);
-            res.push_back(s);
-            isb = ++ise;
-        }
+        std::string str(isb, ise);
+        res.push_back(str);
+
+        if (ise != s.end())isb = ise + 1;
         else break;
-    }while (ise != s.end());
+    };
+    
     return res;
 }
 
