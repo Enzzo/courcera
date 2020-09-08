@@ -61,7 +61,7 @@ int main() {
 Пример кода
 int main() {
   vector<int> v = {6, 4, 7, 6, 4, 4, 0, 1, 5};
-  MergeSort(begin(v), end(v));
+  MergeSort2(begin(v), end(v));
   for (int x : v) {
     cout << x << " ";
   }
