@@ -1,4 +1,39 @@
 ﻿  Person.cpp
-  main.cpp
-  Создание кода...
-  names_and_families.vcxproj -> D:\GitHub\courcera\02\w4\[09]\names_and_families\Debug\names_and_families.exe
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\algorithm(2915,34): error C2672: "operator __surrogate_func": не найдена соответствующая перегруженная функция
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\algorithm(2921): message : выполняется компиляция ссылки на экземпляр шаблон функции "bool std::binary_search<_FwdIt,_Ty,std::less<void>>(_FwdIt,_FwdIt,const _Ty &,_Pr)"
+          with
+          [
+              _FwdIt=std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,std::string>>>>,
+              _Ty=int,
+              _Pr=std::less<void>
+          ]
+D:\github\courcera\02\w4\[09]\names_and_families\names_and_families\Person.cpp(14): message : выполняется компиляция ссылки на экземпляр шаблон функции "bool std::binary_search<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,std::string>>>>,int>(_FwdIt,_FwdIt,const _Ty &)"
+          with
+          [
+              _FwdIt=std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,std::string>>>>,
+              _Ty=int
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\algorithm(2915,1): error C2893: Сбой при специализации функции-шаблона "unknown-type std::less<void>::operator ()(_Ty1 &&,_Ty2 &&) noexcept(<expr>) const".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\xstddef(239): message : см. объявление "std::less<void>::operator ()"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\algorithm(2915,1): message : Со следующими аргументами шаблона:
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\algorithm(2915,1): message : "_Ty1=const _Ty &"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\algorithm(2915,1): message : "_Ty2=std::pair<const int,std::string> &"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\xutility(4853,13): error C2672: "operator __surrogate_func": не найдена соответствующая перегруженная функция
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\algorithm(2831): message : выполняется компиляция ссылки на экземпляр шаблон функции "_FwdIt std::lower_bound<_FwdIt,_Ty,std::less<void>>(_FwdIt,const _FwdIt,const _Ty &,_Pr)"
+          with
+          [
+              _FwdIt=std::reverse_iterator<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,std::string>>>>>,
+              _Ty=int,
+              _Pr=std::less<void>
+          ]
+D:\github\courcera\02\w4\[09]\names_and_families\names_and_families\Person.cpp(18): message : выполняется компиляция ссылки на экземпляр шаблон функции "_FwdIt std::lower_bound<std::reverse_iterator<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,std::string>>>>>,int>(_FwdIt,_FwdIt,const _Ty &)"
+          with
+          [
+              _FwdIt=std::reverse_iterator<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const int,std::string>>>>>,
+              _Ty=int
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\xutility(4853,1): error C2893: Сбой при специализации функции-шаблона "unknown-type std::less<void>::operator ()(_Ty1 &&,_Ty2 &&) noexcept(<expr>) const".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\xstddef(239): message : см. объявление "std::less<void>::operator ()"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\xutility(4853,1): message : Со следующими аргументами шаблона:
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\xutility(4853,1): message : "_Ty1=std::pair<const int,std::string> &"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\xutility(4853,1): message : "_Ty2=const _Ty &"

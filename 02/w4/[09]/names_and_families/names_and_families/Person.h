@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <map>
+#include <vector>
 
 class Person {
 public:
@@ -10,4 +11,5 @@ public:
 private:
     std::map<int, std::string>fn;
     std::map<int, std::string>ln;
+    std::vector<int>keys;
 };
