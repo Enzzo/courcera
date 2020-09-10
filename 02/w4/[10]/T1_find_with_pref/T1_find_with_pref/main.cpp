@@ -24,10 +24,19 @@ int main() {
     std::cout << (z_result.first  - sorted_strings.begin()) << " " <<
                  (z_result.second - sorted_strings.begin()) << std::endl;                   //3 3
 
+    const std::vector<std::string> my_strings = { "one", "two", "three", "four" };
+    const auto my_result = FindStartsWith(my_strings.begin(), my_strings.end(), 'f');
+    std::cout << *my_result.first << " " << my_result.second - my_strings.begin();          //four 
+
     return 0;
 }
 
 template<typename RandomIt>
 std::pair<RandomIt, RandomIt>FindStartsWith(RandomIt range_begin, RandomIt range_end, char prefix) {
+    RandomIt i1 = range_begin;
+    RandomIt i2;
 
+
+
+    return { i1, i2 };
 };
