@@ -1,2 +1,28 @@
 ﻿  main.cpp
-  T1_find_with_pref.vcxproj -> D:\GitHub\courcera\02\w4\[10]\T1_find_with_pref\Debug\T1_find_with_pref.exe
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xutility(5687,1): error C2664: "bool (std::string &,const std::string &)": невозможно преобразовать аргумент 2 из "const _Ty" в "const std::string &"
+          with
+          [
+              _Ty=char
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xutility(5687,1): message : Причина: невозможно преобразовать "const _Ty" в "const std::string"
+          with
+          [
+              _Ty=char
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xutility(5687,1): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+D:\GitHub\courcera\02\w4\[10]\T1_find_with_pref\T1_find_with_pref\main.cpp(44): message : выполняется компиляция ссылки на экземпляр шаблон функции "_FwdIt std::lower_bound<RandomIt,char,bool(__cdecl *)(std::string &,const std::string &)>(_FwdIt,const _FwdIt,const _Ty &,_Pr)"
+          with
+          [
+              _FwdIt=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::string>>>,
+              RandomIt=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::string>>>,
+              _Ty=char,
+              _Pr=bool (__cdecl *)(std::string &,const std::string &)
+          ]
+D:\GitHub\courcera\02\w4\[10]\T1_find_with_pref\T1_find_with_pref\main.cpp(13): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>> FindStartsWith<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>>(RandomIt,RandomIt,char)"
+          with
+          [
+              _Ty=std::string,
+              RandomIt=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::string>>>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xutility(5687,1): error C2664: "bool (std::string &,const std::string &)": невозможно преобразовать аргумент 1 из "const std::basic_string<char,std::char_traits<char>,std::allocator<char>>" в "std::string &"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xutility(5687,19): message : В результате преобразования теряются квалификаторы
