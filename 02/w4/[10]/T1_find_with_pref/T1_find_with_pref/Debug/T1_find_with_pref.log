@@ -1,8 +1,2 @@
 ﻿  main.cpp
-D:\GitHub\courcera\02\w4\[10]\T1_find_with_pref\T1_find_with_pref\main.cpp(75,25): error C2100: недопустимое косвенное обращение
-D:\GitHub\courcera\02\w4\[10]\T1_find_with_pref\T1_find_with_pref\main.cpp(37): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>> FindStartsWith<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>>(RandomIt,RandomIt,const std::string &)"
-          with
-          [
-              _Ty=std::string,
-              RandomIt=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::string>>>
-          ]
+  T1_find_with_pref.vcxproj -> D:\github\courcera\02\w4\[10]\T1_find_with_pref\Debug\T1_find_with_pref.exe

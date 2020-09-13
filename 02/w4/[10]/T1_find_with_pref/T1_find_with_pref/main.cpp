@@ -71,8 +71,8 @@ std::pair<RandomIt, RandomIt>FindStartsWith(RandomIt range_begin, RandomIt range
 template<typename RandomIt>
 std::pair<RandomIt, RandomIt>FindStartsWith(RandomIt range_begin, RandomIt range_end, const std::string& prefix) {
     //»Ÿ≈Ã LOWER_BOUND
-    RandomIt i1 = std::lower_bound(range_begin, range_end, prefix, [](std::string& it, std::string& v) {
-        std::string s = *it;
+    RandomIt i1 = std::lower_bound(range_begin, range_end, prefix, [](const std::string& it, const std::string& v) {
+        std::string s = it;
         return !string_part(s, v);
         });
     RandomIt i2 = i1;
@@ -90,12 +90,9 @@ std::pair<RandomIt, RandomIt>FindStartsWith(RandomIt range_begin, RandomIt range
 bool string_part(const std::string& line, const std::string& part) {
     if (line.empty() || part.empty()) return false;
     if (part.size() > line.size()) return false;
-
-    std::string::const_iterator sil = line.begin();
-    std::string::const_iterator sip = part.begin();
-
-    for (; sil != line.end() && sip != part.end(); sil++, sip++) {
-        if (sip != sil) return false;
+    
+    for (size_t i = 0; i < part.size(); i++) {
+        if (line[i] != part[i]) return false;
     }
     return true;
 }
