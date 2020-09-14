@@ -25,6 +25,7 @@ int main() {
 int main() {
 	int x;
 	int y;
+	char prev = ' ';
 	char op;
 	std::string result;
 	unsigned short N;
@@ -32,16 +33,21 @@ int main() {
 	result = std::to_string(x);
 
 	while (N-- > 0) {
+		std::string l = "";
+		std::string r = "";
+		std::cin >> op >> y;
 		switch (op) {
-		case '+':
-		case '-':
-			if()
-			result = 
-		default:
-			result = 
+		case '*':
+		case '/':
+			if (prev == '+' || prev == '-') {
+				l = "(";
+				r = ")";
+			}
+		}			
 
-		result = "(" + result + ") " + op + " " + std::to_string(y);
+		result = l + result + r +" "+ op + " " + std::to_string(y);
 		std::cout << result;
+		prev = op;
 	}
 	return 0;
 }
