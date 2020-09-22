@@ -1,4 +1,7 @@
 #pragma once
+
+#include <iostream>
+
 class Date {
 public:
     int GetYear() const {
@@ -25,3 +28,8 @@ private:
     int month;
     int day;
 };
+
+std::istream& operator>>(std::istream&, Date&);
+std::ostream& operator<<(std::ostream&, const Date&);
+
+bool operator<(const Date&, const Date&);
