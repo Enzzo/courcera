@@ -139,21 +139,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\condition_parser.cpp" />
-    <ClCompile Include="..\condition_parser_test.cpp" />
-    <ClCompile Include="..\token.cpp" />
+    <ClCompile Include="condition_parser.cpp" />
+    <ClCompile Include="condition_parser_test.cpp" />
     <ClCompile Include="database.cpp" />
     <ClCompile Include="date.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TestRunner.cpp" />
+    <ClCompile Include="token.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\condition_parser.h" />
-    <ClInclude Include="..\token.h" />
     <ClInclude Include="condition_parser.h" />
     <ClInclude Include="database.h" />
     <ClInclude Include="date.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="test_runner.h" />
+    <ClInclude Include="token.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Task.txt" />

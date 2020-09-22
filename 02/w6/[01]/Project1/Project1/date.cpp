@@ -1,6 +1,16 @@
 #include "date.h"
-#include <iostream>
-#include <sstream>
+
+class WrongDateException {
+public:
+    WrongDateException(const std::string& m = "Wrong date") {
+        message = m;
+    }
+    const std::string what()const {
+        return message;
+    }
+private:
+    std::string message;
+};
 
 bool operator<(const Date& lhs, const Date& rhs) {
 

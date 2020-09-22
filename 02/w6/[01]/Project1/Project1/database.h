@@ -1,22 +1,11 @@
 #pragma once
+#include "date.h"
 
 #include <string>
 #include <map>
 #include <vector>
-
-#include "date.h"
-
-class WrongDateException {
-public:
-    WrongDateException(const std::string& m = "Wrong date") {
-        message = m;
-    }
-    const std::string what()const {
-        return message;
-    }
-private:
-    std::string message;
-};
+#include <iostream>
+#include <algorithm>
 
 class WrongCommandException {
 public:
@@ -32,14 +21,15 @@ private:
 
 class Database {
 public:
-    void AddEvent(const Date&, const std::string&);
+    void Add(const Date&, const std::string&);
     bool DeleteEvent(const Date&, const std::string&);
     int  DeleteDate(const Date&);
     void Find(const Date&)const;
 
-    //Find(const Date& date) const;
+    void Print(std::ostream&) const;
 
-    void Print() const;
+    ///////////////////////////////////////////////////
+    void Print(std::ostringstream&)const;
 private:
     std::map<Date, std::vector<std::string>> table;
 };
