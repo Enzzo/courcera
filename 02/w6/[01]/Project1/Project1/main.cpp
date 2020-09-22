@@ -18,7 +18,7 @@ int main() {
 
     Database db;
 
-    for (std::string line; getline(std::cin, line); ) {
+    for (std::string line; std::getline(std::cin, line); ) {
         std::istringstream is(line);
 
         std::string command;
