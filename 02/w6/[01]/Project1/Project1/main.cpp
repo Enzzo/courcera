@@ -8,7 +8,13 @@
 #include <stdexcept>
 
 std::string ParseEvent(std::istream& is) {
-    // Реализуйте эту функцию
+    std::string event;
+    is >> event;
+    return event;
+}
+
+Date ParseDate(std::istream& is) {
+
 }
 
 void TestAll();
@@ -24,14 +30,17 @@ int main() {
         std::string command;
         is >> command;
         if (command == "Add") {
+            //Add 2017-07-08 Someone's birthday
             const auto date = ParseDate(is);
             const auto event = ParseEvent(is);
             db.Add(date, event);
         }
         else if (command == "Print") {
+            //Print
             db.Print(std::cout);
         }
         else if (command == "Del") {
+            //Del date == 2017-07-08
             auto condition = ParseCondition(is);
             auto predicate = [condition](const Date& date, const std::string& event) {
                 return condition->Evaluate(date, event);
@@ -40,6 +49,7 @@ int main() {
             std::cout << "Removed " << count << " entries" << std::endl;
         }
         else if (command == "Find") {
+            //Find event != "working day"
             auto condition = ParseCondition(is);
             auto predicate = [condition](const Date& date, const std::string& event) {
                 return condition->Evaluate(date, event);

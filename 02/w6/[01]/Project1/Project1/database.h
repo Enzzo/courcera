@@ -28,8 +28,6 @@ public:
 
     void Print(std::ostream&) const;
 
-    ///////////////////////////////////////////////////
-    void Print(std::ostringstream&)const;
 private:
     std::map<Date, std::vector<std::string>> table;
 };
