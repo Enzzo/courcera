@@ -16,3 +16,4 @@ private:
 
 template<typename TestFunc, typename Result>
 void AssertEqual(const TestFunc&, const Result&, const std::string&);
+void Assert(bool, bool, const std::string&);

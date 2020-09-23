@@ -1,0 +1,143 @@
+﻿  condition_parser.cpp
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(31,14): error C2760: синтаксическая ошибка: непредвиденный токен "идентификатор"; требуется ";"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(78,18): error C3861: LogicalOperation: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(79,8): error C3861: LogicalOperation: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(79,35): error C3861: LogicalOperation: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(84,13): error C3861: logic_error: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(84,24): message : "logic_error": объявление функции должно быть доступно, так как ни один из аргументов не зависит от параметра шаблона
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(87,62): error C3861: LogicalOperation: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(88,62): error C3861: LogicalOperation: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(96,29): error C3861: LogicalOperationNode: идентификатор не найден
+  condition_parser_test.cpp
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(10,43): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(10,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(11,46): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(11,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(16,54): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(16,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(17,51): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(17,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(22,43): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(22,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(23,43): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(23,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(24,44): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(24,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(25,44): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(25,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(26,46): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(26,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(31,50): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(31,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(32,55): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(32,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(33,53): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(33,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(38,53): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(38,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(39,54): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(39,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(40,70): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(40,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(45,50): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(45,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(46,51): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(46,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(51,51): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(51,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(52,50): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(52,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(53,50): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(53,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(54,51): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(54,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(59,48): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(59,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(60,50): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(60,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(61,50): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(61,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(62,51): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(62,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(67,50): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(67,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(68,51): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(68,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(73,50): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(73,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(74,49): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(74,5): error C3861: Assert: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(75,48): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(75,5): error C3861: Assert: идентификатор не найден
+  database.cpp
+  date.cpp
+  main.cpp
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(27,31): error C3861: ParseDate: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(37,1): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(39,28): error C2039: "RemoveIf": не является членом "Database".
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\database.h(22): message : см. объявление "Database"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(45,1): error C2660: Node::Evaluate: функция не принимает 2 аргументов
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(5,15): message : см. объявление "Node::Evaluate"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(48,37): error C2039: "FindIf": не является членом "Database".
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\database.h(22): message : см. объявление "Database"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(48,32): error C2789: "entries": требуется инициализация объекта типа класса, квалифицированного как const
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(48): message : см. объявление "entries"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(49,45): error C3536: entries: не может использоваться до инициализации
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(49,38): error C2672: "begin": не найдена соответствующая перегруженная функция
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(49,47): error C2893: Сбой при специализации функции-шаблона "unknown-type std::begin(_Container &)".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xutility(2097): message : см. объявление "std::begin"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(49,47): message : Со следующими аргументами шаблона:
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(49,47): message : "_Container=int"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(49,47): error C2784: const _Elem *std::begin(std::initializer_list<_Elem>) noexcept: не удалось вывести аргумент шаблон для "std::initializer_list<_Elem>" из "int"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\initializer_list(57): message : см. объявление "std::begin"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(49,38): error C2672: "end": не найдена соответствующая перегруженная функция
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(49,47): error C2893: Сбой при специализации функции-шаблона "unknown-type std::end(_Container &)".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xutility(2107): message : см. объявление "std::end"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(49,47): message : Со следующими аргументами шаблона:
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(49,47): message : "_Container=int"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(49,47): error C2784: const _Elem *std::end(std::initializer_list<_Elem>) noexcept: не удалось вывести аргумент шаблон для "std::initializer_list<_Elem>" из "int"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\initializer_list(63): message : см. объявление "std::end"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(49,47): error C3536: <begin>$L0: не может использоваться до инициализации
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(49,47): error C3536: <end>$L0: не может использоваться до инициализации
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(49,45): error C2100: недопустимое косвенное обращение
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(56,33): error C2039: "Last": не является членом "Database".
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\database.h(22): message : см. объявление "Database"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\main.cpp(56,38): error C3861: ParseDate: идентификатор не найден
+  TestRunner.cpp
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\TestRunner.cpp(36,1): error C2297: <<: недопустимо, правый оператор имеет тип "const char [2]"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\TestRunner.cpp(36,1): message : Сообщение диагностики возникло в созданной компилятором функции "void AssertEqual(const TestFunc &,const Result &,const std::string &)"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\TestRunner.cpp(33,14): error C2677: бинарный "<<": не найден глобальный оператор, принимающий тип "const std::string" (или приемлемое преобразование отсутствует)
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\TestRunner.cpp(33,14): message : Сообщение диагностики возникло в созданной компилятором функции "void AssertEqual(const TestFunc &,const Result &,const std::string &)"
+  token.cpp
+  Создание кода...
