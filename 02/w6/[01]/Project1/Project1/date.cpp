@@ -65,3 +65,7 @@ std::ostream& operator<<(std::ostream& os, const Date& d) {
         os << std::setfill('0') << std::setw(4) << d.GetYear() << "-" << std::setw(2) << d.GetMonth() << "-" << std::setw(2) << d.GetDay();
     return os;
 }
+
+Date ParseDate(std::istream& is) {
+
+}

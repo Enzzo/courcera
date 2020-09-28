@@ -23,13 +23,13 @@ class Database {
 public:
     void Add(const Date&, const std::string&);
     void Print(std::ostream&) const;
-    int RemoveIf(bool);
 
-    bool DeleteEvent(const Date&, const std::string&);
-    int  DeleteDate(const Date&);
-    void Find(const Date&)const;
+    template<typename UnaryPredicate>
+    int RemoveIf(UnaryPredicate);
 
-    
+    template<typename UnaryPredicate>
+    std::map<Date, std::vector<std::string>> FindIf(UnaryPredicate);
+    Last();
 
 private:
     std::map<Date, std::vector<std::string>> table;

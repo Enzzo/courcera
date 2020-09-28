@@ -13,10 +13,6 @@ std::string ParseEvent(std::istream& is) {
     return event;
 }
 
-Date ParseDate(std::istream& is) {
-
-}
-
 void TestAll();
 
 int main() {
@@ -29,18 +25,27 @@ int main() {
 
         std::string command;
         is >> command;
-        if (command == "Add") {
-            //Add 2017-07-08 Someone's birthday
+
+        //Добавить событие к дате
+        //Add 2017-07-08 Someone's birthday
+        if (command == "Add") {            
             const auto date = ParseDate(is);
             const auto event = ParseEvent(is);
             db.Add(date, event);
         }
-        else if (command == "Print") {
-            //Print
+
+        //Вывести на экран список всех событий и дат
+        //Print
+        else if (command == "Print") {            
             db.Print(std::cout);
         }
+
+        //Удалить дату (или список дат) или событие по условию
+        //Del date == 2017-07-08
+        //Del date > 2017-11-20
+        //Del event != "holiday"
         else if (command == "Del") {
-            //Del date == 2017-07-08
+            
             auto condition = ParseCondition(is);
             auto predicate = [condition](const Date& date, const std::string& event) {
                 return condition->Evaluate(date, event);
@@ -48,6 +53,8 @@ int main() {
             int count = db.RemoveIf(predicate);
             std::cout << "Removed " << count << " entries" << std::endl;
         }
+
+
         else if (command == "Find") {
             //Find event != "working day"
             auto condition = ParseCondition(is);

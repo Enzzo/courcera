@@ -10,9 +10,16 @@ void Database::Add(const Date& date, const std::string& event) {
     std::sort(table[date].begin(), table[date].end());
 }
 
-int Database::RemoveIf(bool b) {
+template<typename UnaryPredicate>
+int Database::RemoveIf(UnaryPredicate pred) {
     return 0;
 }
+
+template<typename UnaryPredicate>
+std::map < Date, std::vector<std::string>> Database::FindIf(UnaryPredicate pred) {
+    return table;
+}
+
 bool Database::DeleteEvent(const Date& date, const std::string& event) {
     try {
         std::vector<std::string>& v = table.at(date);

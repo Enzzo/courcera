@@ -34,3 +34,5 @@ std::istream& operator>>(std::istream&, Date&);
 std::ostream& operator<<(std::ostream&, const Date&);
 
 bool operator<(const Date&, const Date&);
+
+Date ParseDate(std::istream&);

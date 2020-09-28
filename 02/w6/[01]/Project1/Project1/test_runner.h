@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <map>
+#include <vector>
 
 class TestRunner {
 public:
@@ -17,3 +19,12 @@ private:
 template<typename TestFunc, typename Result>
 void AssertEqual(const TestFunc&, const Result&, const std::string&);
 void Assert(bool, bool, const std::string&);
+
+template<typename K, typename V>
+std::ostream& operator<<(std::ostream&, const std::map<K, V>&);
+
+template<typename T>
+std::ostream& operator<<(std::ostream&, const std::vector<T>&);
+
+template<typename K, typename V>
+std::ostream& operator<<(std::ostream&, const std::pair<K, V>&);

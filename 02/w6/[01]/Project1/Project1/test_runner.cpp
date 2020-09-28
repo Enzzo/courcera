@@ -38,3 +38,24 @@ void AssertEqual(const TestFunc& foo, const Result& result, const std::string& h
 void Assert(bool l, bool r, const std::string& hint) {
 	AssertEqual(l, r, hint);
 }
+
+template<typename K, typename V>
+std::ostream& operator<<(std::ostream& os, const std::map<K, V>& m) {
+	for (const std::pair<K, V>& p : m) {
+		os << p.first << " " << p.second << std::endl;
+	}
+	return os;
+}
+
+template<typename T>
+std::ostream& operator<<(std::ostream& os, const std::vector<T>& v) {
+	for (const T& t : v)
+		os << t << std::endl;;
+	return os;
+}
+
+template<typename K, typename V>
+std::ostream& operator<<(std::ostream& os, const std::pair<K, V>& p) {
+	os << p.first << " " << p.second << std::endl;
+	return os;
+}
