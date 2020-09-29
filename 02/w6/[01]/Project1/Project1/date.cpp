@@ -67,5 +67,6 @@ std::ostream& operator<<(std::ostream& os, const Date& d) {
 }
 
 Date ParseDate(std::istream& is) {
-
+    Date d;
+    return d;
 }

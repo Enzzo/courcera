@@ -1,247 +1,42 @@
 ﻿  condition_parser.cpp
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(31,14): error C2760: синтаксическая ошибка: непредвиденный токен "идентификатор"; требуется ";"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(78,18): error C3861: LogicalOperation: идентификатор не найден
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(79,8): error C3861: LogicalOperation: идентификатор не найден
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(79,35): error C3861: LogicalOperation: идентификатор не найден
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(84,13): error C3861: logic_error: идентификатор не найден
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(84,24): message : "logic_error": объявление функции должно быть доступно, так как ни один из аргументов не зависит от параметра шаблона
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(87,62): error C3861: LogicalOperation: идентификатор не найден
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(88,62): error C3861: LogicalOperation: идентификатор не найден
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(28,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xmemory(230,12): error C2664: "LogicalOperationNode::LogicalOperationNode(LogicalOperationNode &&)": невозможно преобразовать аргумент 1 из "const LogicalOperation" в "const int"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xmemory(230,33): message : Для этого преобразования требуется явное приведение (static_cast, приведение в стиле С или приведение в стиле функции)
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(28,2): message : см. объявление "LogicalOperationNode::LogicalOperationNode"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\memory(1427): message : выполняется компиляция ссылки на экземпляр шаблон функции "void std::_Construct_in_place<_Ty,const LogicalOperation&,std::shared_ptr<Node>&,std::shared_ptr<Node>>(_Ty &,const LogicalOperation &,std::shared_ptr<Node> &,std::shared_ptr<Node> &&) noexcept(false)"
+          with
+          [
+              _Ty=LogicalOperationNode
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\memory(2071): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<const LogicalOperation&,std::shared_ptr<Node>&,std::shared_ptr<Node>>(const LogicalOperation &,std::shared_ptr<Node> &,std::shared_ptr<Node> &&)"
+          with
+          [
+              _Ty=LogicalOperationNode
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\memory(2072): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<const LogicalOperation&,std::shared_ptr<Node>&,std::shared_ptr<Node>>(const LogicalOperation &,std::shared_ptr<Node> &,std::shared_ptr<Node> &&)"
+          with
+          [
+              _Ty=LogicalOperationNode
+          ]
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(98): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<LogicalOperationNode> std::make_shared<LogicalOperationNode,const LogicalOperation&,std::shared_ptr<Node>&,std::shared_ptr<Node>>(const LogicalOperation &,std::shared_ptr<Node> &,std::shared_ptr<Node> &&)"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(107): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<Node> ParseExpression<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>>(It &,It,unsigned int)"
+          with
+          [
+              _Ty=Token,
+              It=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Token>>>
+          ]
   condition_parser_test.cpp
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(10,43): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(10,43): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(10,43): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(10,65): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(11,46): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(11,46): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(11,46): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(11,68): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(16,54): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(16,54): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(16,54): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(16,76): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(17,51): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(17,51): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(17,51): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(17,73): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(22,43): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(22,43): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(22,43): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(22,65): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(23,43): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(23,43): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(23,43): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(23,65): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(24,44): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(24,44): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(24,44): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(24,66): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(25,44): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(25,44): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(25,44): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(25,66): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(26,46): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(26,46): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(26,46): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(26,68): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(31,50): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(31,50): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(31,50): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(31,73): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(32,55): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(32,55): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(32,55): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(32,78): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(33,53): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(33,53): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(33,53): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(33,76): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(38,53): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(38,53): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(38,53): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(38,76): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(39,54): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(39,54): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(39,54): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(39,77): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(40,70): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(40,70): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(40,70): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(40,93): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(45,50): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(45,50): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(45,50): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(45,73): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(46,51): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(46,51): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(46,51): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(46,74): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(51,51): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(51,51): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(51,51): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(51,74): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(52,50): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(52,50): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(52,50): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(52,73): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(53,50): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(53,50): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(53,50): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(53,73): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(54,51): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(54,51): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(54,51): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(54,74): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(59,48): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(59,48): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(59,48): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(59,71): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(60,50): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(60,50): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(60,50): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(60,73): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(61,50): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(61,50): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(61,50): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(61,73): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(62,51): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(62,51): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(62,51): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(62,74): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(67,50): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(67,50): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(67,50): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(67,73): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(68,51): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(68,51): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(68,51): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(68,74): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(73,50): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(73,50): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(73,50): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(73,73): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(74,49): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(74,49): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(74,49): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(74,72): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(75,48): error C2664: "bool Node::Evaluate(const Date &,const std::string &)": невозможно преобразовать аргумент 1 из "initializer list" в "const Date &"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(75,48): message : Причина: невозможно преобразовать "initializer list" в "const Date"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(75,48): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(7,15): message : см. объявление "Node::Evaluate"
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser_test.cpp(75,71): error C2660: Assert: функция не принимает 2 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.h(20,6): message : см. объявление "Assert"
-  database.cpp
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.h(32,11): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.h(32,11): warning C4183: Last: отсутствие возвращаемого типа; предполагается функция-член, возвращающая "int"
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.cpp(23,16): error C2039: "DeleteEvent": не является членом "Database".
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.h(22): message : см. объявление "Database"
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.cpp(25,39): error C2065: table: необъявленный идентификатор
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.cpp(25,37): error C2530: v: ссылки должны быть инициализированы
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.cpp(40,15): error C2039: "DeleteDate": не является членом "Database".
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.h(22): message : см. объявление "Database"
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.cpp(41,13): error C2065: table: необъявленный идентификатор
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.cpp(42,5): error C2065: table: необъявленный идентификатор
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.cpp(46,16): error C2039: "Find": не является членом "Database".
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.h(22): message : см. объявление "Database"
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.cpp(46,45): error C2270: Find: модификаторы недопустимы для функций, не являющихся членами
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.cpp(48,38): error C2065: table: необъявленный идентификатор
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(28,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
   main.cpp
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.h(32,11): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.h(32,11): warning C4183: Last: отсутствие возвращаемого типа; предполагается функция-член, возвращающая "int"
-D:\github\courcera\02\w6\[01]\Project1\Project1\main.cpp(71,36): error C2679: бинарный "<<": не найден оператор, принимающий правый операнд типа "const std::pair<const Date,std::vector<std::string,std::allocator<std::string>>>" (или приемлемое преобразование отсутствует)
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(466,39): message : может быть "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_streambuf<char,std::char_traits<char>> *)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(441,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(const void *)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(423,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long double)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(405,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(387,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(float)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(369,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned __int64)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(351,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(__int64)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(333,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned long)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(315,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(296,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned int)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(270,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(251,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned short)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(217,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(short)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(199,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(bool)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(194,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::ios_base &(__cdecl *)(std::ios_base &))"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(189,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ios<char,std::char_traits<char>> &(__cdecl *)(std::basic_ios<char,std::char_traits<char>> &))"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(184,39): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ostream<char,std::char_traits<char>> &(__cdecl *)(std::basic_ostream<char,std::char_traits<char>> &))"
-D:\github\courcera\02\w6\[01]\Project1\Project1\date.h(34,15): message : или       "std::ostream &operator <<(std::ostream &,const Date &)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(654,32): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const char *)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(698,32): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,char)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(734,31): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const char *)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(779,31): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,char)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(896,31): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const signed char *)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(902,31): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,signed char)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(907,31): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const unsigned char *)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(913,31): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,unsigned char)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\ostream(1001,32): message : или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const std::error_code &)"
-D:\github\courcera\02\w6\[01]\Project1\Project1\main.cpp(71,36): message : при попытке сопоставить список аргументов "(std::ostream, const std::pair<const Date,std::vector<std::string,std::allocator<std::string>>>)"
-D:\github\courcera\02\w6\[01]\Project1\Project1\main.cpp(77,51): error C2660: Database::Last: функция не принимает 1 аргументов
-D:\github\courcera\02\w6\[01]\Project1\Project1\database.h(32,5): message : см. объявление "Database::Last"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(28,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\database.h(28,9): warning C5046: "Database::RemoveIf": символ, включающий тип с внутренним связыванием, не определен
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\database.h(31,46): warning C5046: "Database::FindIf": символ, включающий тип с внутренним связыванием, не определен
   node.cpp
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.h(22,17): error C2065: Node: необъявленный идентификатор
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.h(22,6): error C2923: std::shared_ptr: "Node" не является допустимым аргументом типа шаблон для параметра "_Ty"
   test_runner.cpp
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(36,1): error C2297: <<: недопустимо, правый оператор имеет тип "const char [2]"
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(36,1): message : Сообщение диагностики возникло в созданной компилятором функции "void AssertEqual(const TestFunc &,const Result &,const std::string &)"
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(33,14): error C2677: бинарный "<<": не найден глобальный оператор, принимающий тип "const std::string" (или приемлемое преобразование отсутствует)
-D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(33,14): message : Сообщение диагностики возникло в созданной компилятором функции "void AssertEqual(const TestFunc &,const Result &,const std::string &)"
-  token.cpp
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(36,1): error C2297: <<: недопустимо, правый оператор имеет тип "const char [2]"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(36,1): message : Сообщение диагностики возникло в созданной компилятором функции "void AssertEqual(const TestFunc &,const Result &,const std::string &)"
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(33,14): error C2677: бинарный "<<": не найден глобальный оператор, принимающий тип "const std::string" (или приемлемое преобразование отсутствует)
+D:\GitHub\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(33,14): message : Сообщение диагностики возникло в созданной компилятором функции "void AssertEqual(const TestFunc &,const Result &,const std::string &)"
   Создание кода...

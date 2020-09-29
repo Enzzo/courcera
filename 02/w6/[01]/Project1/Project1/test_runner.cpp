@@ -35,8 +35,8 @@ void AssertEqual(const TestFunc& foo, const Result& result, const std::string& h
 	}
 }
 
-void Assert(bool l, bool r, const std::string& hint) {
-	AssertEqual(l, r, hint);
+void Assert(bool b, const std::string& hint = {}) {
+	AssertEqual(b, true, hint);
 }
 
 template<typename K, typename V>

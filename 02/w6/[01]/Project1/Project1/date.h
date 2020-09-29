@@ -5,6 +5,8 @@
 
 class Date {
 public:
+    Date(const int y, const int m, const int d) : year(y), month(m), day(d) {};
+    Date() : Date(0, 0, 0) {};
     int GetYear() const {
         return year;
     };

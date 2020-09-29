@@ -81,7 +81,7 @@ std::shared_ptr<Node> ParseExpression(It& current, It end, unsigned precedence) 
 
   while (current != end && current->type != TokenType::PAREN_RIGHT) {
     if (current->type != TokenType::LOGICAL_OP) {
-      throw logic_error("Expected logic operation");
+      throw std::logic_error("Expected logic operation");
     }
 
     const auto logical_operation = current->value == "AND" ? LogicalOperation::And

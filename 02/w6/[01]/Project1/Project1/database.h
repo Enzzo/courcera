@@ -29,7 +29,7 @@ public:
 
     template<typename UnaryPredicate>
     std::map<Date, std::vector<std::string>> FindIf(UnaryPredicate);
-    Last();
+    std::string Last(const Date&);
 
 private:
     std::map<Date, std::vector<std::string>> table;

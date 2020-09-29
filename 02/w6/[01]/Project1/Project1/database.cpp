@@ -15,11 +15,16 @@ int Database::RemoveIf(UnaryPredicate pred) {
     return 0;
 }
 
+std::string Database::Last(const Date& date) {
+    return "";
+}
+
 template<typename UnaryPredicate>
 std::map < Date, std::vector<std::string>> Database::FindIf(UnaryPredicate pred) {
     return table;
 }
 
+/*
 bool Database::DeleteEvent(const Date& date, const std::string& event) {
     try {
         std::vector<std::string>& v = table.at(date);
@@ -54,7 +59,7 @@ void Database::Find(const Date& date) const {
     }
     catch (std::out_of_range) {};
 };
-
+*/
 void Database::Print(std::ostream& os)const {
 
     for (const std::pair<Date, std::vector<std::string>>& p : table) {

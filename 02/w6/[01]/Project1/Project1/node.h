@@ -1,5 +1,6 @@
 #pragma once
 #include "date.h"
+#include "condition_parser.h"
 #include <string>
 
 class Node {
@@ -24,5 +25,6 @@ public:
 
 class LogicalOperationNode : public Node {
 public:
+	LogicalOperationNode(const LogicalOperation, const Node&, const Node&);
 	virtual bool Evaluate(const Date&, const std::string&) override;
 };

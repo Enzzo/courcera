@@ -68,6 +68,10 @@ int main() {
             }
             std::cout << "Found " << entries.size() << " entries" << std::endl;
         }
+
+        //Last 2017-06-01
+        //выводит эту, или ближайшую к ней, но не бќльшую
+        //если значение ниже минимальной даты списка, то пишем "no entries"
         else if (command == "Last") {
             try {
                 std::cout << db.Last(ParseDate(is)) << std::endl;

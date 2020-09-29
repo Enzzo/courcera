@@ -18,7 +18,7 @@ private:
 
 template<typename TestFunc, typename Result>
 void AssertEqual(const TestFunc&, const Result&, const std::string&);
-void Assert(bool, bool, const std::string&);
+void Assert(bool, const std::string&);
 
 template<typename K, typename V>
 std::ostream& operator<<(std::ostream&, const std::map<K, V>&);
