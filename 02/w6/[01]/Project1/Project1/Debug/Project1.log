@@ -1,42 +1,18 @@
 ﻿  condition_parser.cpp
-D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(28,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xmemory(230,12): error C2664: "LogicalOperationNode::LogicalOperationNode(LogicalOperationNode &&)": невозможно преобразовать аргумент 1 из "const LogicalOperation" в "const int"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xmemory(230,33): message : Для этого преобразования требуется явное приведение (static_cast, приведение в стиле С или приведение в стиле функции)
-D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(28,2): message : см. объявление "LogicalOperationNode::LogicalOperationNode"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\memory(1427): message : выполняется компиляция ссылки на экземпляр шаблон функции "void std::_Construct_in_place<_Ty,const LogicalOperation&,std::shared_ptr<Node>&,std::shared_ptr<Node>>(_Ty &,const LogicalOperation &,std::shared_ptr<Node> &,std::shared_ptr<Node> &&) noexcept(false)"
-          with
-          [
-              _Ty=LogicalOperationNode
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\memory(2071): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<const LogicalOperation&,std::shared_ptr<Node>&,std::shared_ptr<Node>>(const LogicalOperation &,std::shared_ptr<Node> &,std::shared_ptr<Node> &&)"
-          with
-          [
-              _Ty=LogicalOperationNode
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\memory(2072): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<const LogicalOperation&,std::shared_ptr<Node>&,std::shared_ptr<Node>>(const LogicalOperation &,std::shared_ptr<Node> &,std::shared_ptr<Node> &&)"
-          with
-          [
-              _Ty=LogicalOperationNode
-          ]
-D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(98): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<LogicalOperationNode> std::make_shared<LogicalOperationNode,const LogicalOperation&,std::shared_ptr<Node>&,std::shared_ptr<Node>>(const LogicalOperation &,std::shared_ptr<Node> &,std::shared_ptr<Node> &&)"
-D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(107): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<Node> ParseExpression<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>>(It &,It,unsigned int)"
-          with
-          [
-              _Ty=Token,
-              It=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Token>>>
-          ]
+D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(28,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(28,45): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
   condition_parser_test.cpp
-D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(28,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(28,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(28,45): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
   main.cpp
-D:\GitHub\courcera\02\w6\[01]\Project1\Project1\node.h(28,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-D:\GitHub\courcera\02\w6\[01]\Project1\Project1\database.h(28,9): warning C5046: "Database::RemoveIf": символ, включающий тип с внутренним связыванием, не определен
-D:\GitHub\courcera\02\w6\[01]\Project1\Project1\database.h(31,46): warning C5046: "Database::FindIf": символ, включающий тип с внутренним связыванием, не определен
+D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(28,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(28,45): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
   node.cpp
-D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.h(22,17): error C2065: Node: необъявленный идентификатор
-D:\GitHub\courcera\02\w6\[01]\Project1\Project1\condition_parser.h(22,6): error C2923: std::shared_ptr: "Node" не является допустимым аргументом типа шаблон для параметра "_Ty"
+D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.h(7,17): error C2065: Node: необъявленный идентификатор
+D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.h(7,6): error C2923: std::shared_ptr: "Node" не является допустимым аргументом типа шаблон для параметра "_Ty"
   test_runner.cpp
-D:\GitHub\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(36,1): error C2297: <<: недопустимо, правый оператор имеет тип "const char [2]"
-D:\GitHub\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(36,1): message : Сообщение диагностики возникло в созданной компилятором функции "void AssertEqual(const TestFunc &,const Result &,const std::string &)"
-D:\GitHub\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(33,14): error C2677: бинарный "<<": не найден глобальный оператор, принимающий тип "const std::string" (или приемлемое преобразование отсутствует)
-D:\GitHub\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(33,14): message : Сообщение диагностики возникло в созданной компилятором функции "void AssertEqual(const TestFunc &,const Result &,const std::string &)"
+D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(36,1): error C2297: <<: недопустимо, правый оператор имеет тип "const char [2]"
+D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(36,1): message : Сообщение диагностики возникло в созданной компилятором функции "void AssertEqual(const TestFunc &,const Result &,const std::string &)"
+D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(33,14): error C2677: бинарный "<<": не найден глобальный оператор, принимающий тип "const std::string" (или приемлемое преобразование отсутствует)
+D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(33,14): message : Сообщение диагностики возникло в созданной компилятором функции "void AssertEqual(const TestFunc &,const Result &,const std::string &)"
   Создание кода...

@@ -25,6 +25,6 @@ public:
 
 class LogicalOperationNode : public Node {
 public:
-	LogicalOperationNode(const LogicalOperation, const Node&, const Node&);
+	LogicalOperationNode(const LogicalOperation&, const Node&, const Node&);
 	virtual bool Evaluate(const Date&, const std::string&) override;
 };
