@@ -1,15 +1,50 @@
 ﻿  condition_parser.cpp
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(28,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(28,45): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
-  condition_parser_test.cpp
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(28,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(28,45): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
-  main.cpp
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(28,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-D:\github\courcera\02\w6\[01]\Project1\Project1\node.h(28,45): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xmemory(230,12): error C2661: DateComparisonNode::DateComparisonNode: нет перегруженной функции, принимающей 2 аргументов
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\memory(1427): message : выполняется компиляция ссылки на экземпляр шаблон функции "void std::_Construct_in_place<_Ty,Comparison&,Date>(_Ty &,Comparison &,Date &&) noexcept(false)"
+          with
+          [
+              _Ty=DateComparisonNode
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\memory(2071): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<Comparison&,Date>(Comparison &,Date &&)"
+          with
+          [
+              _Ty=DateComparisonNode
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\memory(2072): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<Comparison&,Date>(Comparison &,Date &&)"
+          with
+          [
+              _Ty=DateComparisonNode
+          ]
+D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(53): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<DateComparisonNode> std::make_shared<DateComparisonNode,Comparison&,Date>(Comparison &,Date &&)"
+D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(76): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<Node> ParseComparison<It>(It &,It)"
+          with
+          [
+              It=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Token>>>
+          ]
+D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(108): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<Node> ParseExpression<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>>(It &,It,unsigned int)"
+          with
+          [
+              _Ty=Token,
+              It=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Token>>>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xmemory(230,12): error C2661: EventComparisonNode::EventComparisonNode: нет перегруженной функции, принимающей 2 аргументов
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\memory(1427): message : выполняется компиляция ссылки на экземпляр шаблон функции "void std::_Construct_in_place<_Ty,Comparison&,const std::string&>(_Ty &,Comparison &,const std::string &) noexcept(false)"
+          with
+          [
+              _Ty=EventComparisonNode
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\memory(2071): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<Comparison&,const std::string&>(Comparison &,const std::string &)"
+          with
+          [
+              _Ty=EventComparisonNode
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\memory(2072): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<Comparison&,const std::string&>(Comparison &,const std::string &)"
+          with
+          [
+              _Ty=EventComparisonNode
+          ]
+D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.cpp(55): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<EventComparisonNode> std::make_shared<EventComparisonNode,Comparison&,const std::string&>(Comparison &,const std::string &)"
   node.cpp
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.h(7,17): error C2065: Node: необъявленный идентификатор
-D:\github\courcera\02\w6\[01]\Project1\Project1\condition_parser.h(7,6): error C2923: std::shared_ptr: "Node" не является допустимым аргументом типа шаблон для параметра "_Ty"
   test_runner.cpp
 D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(36,1): error C2297: <<: недопустимо, правый оператор имеет тип "const char [2]"
 D:\github\courcera\02\w6\[01]\Project1\Project1\test_runner.cpp(36,1): message : Сообщение диагностики возникло в созданной компилятором функции "void AssertEqual(const TestFunc &,const Result &,const std::string &)"

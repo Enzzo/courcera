@@ -58,48 +58,49 @@ template <class It> std::shared_ptr<Node> ParseComparison(It& current, It end) {
 
 template <class It>
 std::shared_ptr<Node> ParseExpression(It& current, It end, unsigned precedence) {
-  if (current == end) {
-    return std::shared_ptr<Node>();
-  }
-
-  std::shared_ptr<Node> left;
-
-  if (current->type == TokenType::PAREN_LEFT) {
-    ++current; // consume '('
-    left = ParseExpression(current, end, 0u);
-    if (current == end || current->type != TokenType::PAREN_RIGHT) {
-      throw std::logic_error("Missing right paren");
-    }
-    ++current; // consume ')'
-  } else {
-    left = ParseComparison(current, end);
-  }
-
-  const std::map<LogicalOperation, unsigned> precedences = {
-      {LogicalOperation::Or, 1}, {LogicalOperation::And, 2}
-  };
-
-  while (current != end && current->type != TokenType::PAREN_RIGHT) {
-    if (current->type != TokenType::LOGICAL_OP) {
-      throw std::logic_error("Expected logic operation");
+    if (current == end) {
+        return std::shared_ptr<Node>();
     }
 
-    const auto logical_operation = current->value == "AND" ? LogicalOperation::And
-                                                           : LogicalOperation::Or;
-    const auto current_precedence = precedences.at(logical_operation);
-    if (current_precedence <= precedence) {
-      break;
+    std::shared_ptr<Node> left;
+
+    if (current->type == TokenType::PAREN_LEFT) {
+        ++current; // consume '('
+        left = ParseExpression(current, end, 0u);
+        if (current == end || current->type != TokenType::PAREN_RIGHT) {
+            throw std::logic_error("Missing right paren");
+        }
+        ++current; // consume ')'
+    }
+    else {
+        left = ParseComparison(current, end);
     }
 
-    ++current; // consume op
+    const std::map<LogicalOperation, unsigned> precedences = {
+        {LogicalOperation::Or, 1}, {LogicalOperation::And, 2}
+    };
 
-    left = std::make_shared<LogicalOperationNode>(
-        logical_operation, left, ParseExpression(current, end, current_precedence)
-    );
-  }
+    while (current != end && current->type != TokenType::PAREN_RIGHT) {
+        if (current->type != TokenType::LOGICAL_OP) {
+            throw std::logic_error("Expected logic operation");
+        }
 
-  return left;
-}
+        const auto logical_operation = current->value == "AND" ? LogicalOperation::And
+            : LogicalOperation::Or;
+        const auto current_precedence = precedences.at(logical_operation);
+        if (current_precedence <= precedence) {
+            break;
+        }
+
+        ++current; // consume op
+
+        left = std::make_shared<LogicalOperationNode>(
+            logical_operation, left, ParseExpression(current, end, current_precedence)
+            );
+    }
+
+    return left;
+};
 
 std::shared_ptr<Node> ParseCondition(std::istream& is) {
   auto tokens = Tokenize(is);

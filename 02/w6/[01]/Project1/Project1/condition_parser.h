@@ -13,11 +13,6 @@ enum class Comparison {
     NotEqual
 };
 
-enum class LogicalOperation {
-    And,
-    Or
-};
-
 std::shared_ptr<Node> ParseCondition(std::istream&);
 
 void TestParseCondition();

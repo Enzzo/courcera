@@ -1,21 +1,20 @@
 #include "node.h"
 
-bool EmptyNode::Evaluate(const Date&, const std::string&){
+bool EmptyNode::Evaluate(const Date& d, const std::string& s)const {
 	return true;
 };
 
-bool DateComparisonNode::Evaluate(const Date&, const std::string&){
+bool DateComparisonNode::Evaluate(const Date& d, const std::string& s)const {
 	return true;
 };
 
-bool EventComparisonNode::Evaluate(const Date&, const std::string&){
+bool EventComparisonNode::Evaluate(const Date& d, const std::string& s)const {
 	return true;
 };
 
-LogicalOperationNode::LogicalOperationNode(const LogicalOperation& lo, const Node& operation, const Node& left) {
+LogicalOperationNode::LogicalOperationNode(const LogicalOperation l, const std::shared_ptr<Node> operation, const std::shared_ptr<Node> left) {
 
 };
-
-bool LogicalOperationNode::Evaluate(const Date&, const std::string&){
+bool LogicalOperationNode::Evaluate(const Date& d, const std::string& s)const {
 	return true;
 };
