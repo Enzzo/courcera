@@ -4,15 +4,6 @@
 #include <memory>
 #include <iostream>
 
-enum class Comparison {
-    Less,
-    LessOrEqual,
-    Greater,
-    GreaterOrEqual,
-    Equal,
-    NotEqual
-};
-
-std::shared_ptr<Node> ParseCondition(std::istream&);
+std::shared_ptr<Node> ParseCondition(std::istream& is);
 
 void TestParseCondition();
